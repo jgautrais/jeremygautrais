@@ -8,8 +8,6 @@ const Nav = () => {
   const router = useRouter();
   const { locale } = router;
 
-  console.log(router.pathname);
-
   function toggleMenu() {
     const btn = document.getElementById('menuBtn');
     const nav = document.getElementById('menu');
