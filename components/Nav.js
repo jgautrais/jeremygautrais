@@ -8,6 +8,8 @@ const Nav = () => {
   const router = useRouter();
   const { locale } = router;
 
+  console.log(router.pathname);
+
   function toggleMenu() {
     const btn = document.getElementById('menuBtn');
     const nav = document.getElementById('menu');
@@ -24,7 +26,14 @@ const Nav = () => {
       ref={ref}
       href={href}
       onClick={onClick}
-      className='text-gray-500 dark:text-gray-300 font-normal hover:text-black dark:hover:text-white text-base w-full no-underline md:w-auto md:px-4 pb-4 pt-8 md:py-1 md:pt-2 border-b md:border-b-0 border-gray-200 dark:border-gray-700 text-lg md:text-base'
+      className={`text-gray-500 dark:text-gray-300 hover:text-black dark:hover:text-white text-base w-full no-underline md:w-auto md:px-4 pb-4 pt-8 md:py-1 md:pt-2 border-b md:border-b-0 border-gray-200 dark:border-gray-700 text-lg md:text-base ${
+        router.pathname == href ||
+        (router.pathname.split('fr')[0] === '/' && href === '/fr') ||
+        router.pathname.split('fr')[0] === href.split('fr')[1] ||
+        router.pathname.split('/')[1] === href.split('/')[1]
+          ? 'font-bold'
+          : ''
+      }`}
     >
       {children}
     </a>

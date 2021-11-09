@@ -82,7 +82,13 @@ export default function Home({ posts }) {
 
       <section>
         <H2>{t('posts')}</H2>
-        <div className='flex flex-col md:flex-row md:justify-between'>
+        <div className='flex flex-col md:flex-row'>
+          {lastPosts.map((frontMatter) => (
+            <PostCard key={frontMatter.title} {...frontMatter} />
+          ))}
+          {lastPosts.map((frontMatter) => (
+            <PostCard key={frontMatter.title} {...frontMatter} />
+          ))}
           {lastPosts.map((frontMatter) => (
             <PostCard key={frontMatter.title} {...frontMatter} />
           ))}
