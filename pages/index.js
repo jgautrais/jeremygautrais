@@ -86,12 +86,6 @@ export default function Home({ posts }) {
           {lastPosts.map((frontMatter) => (
             <PostCard key={frontMatter.title} {...frontMatter} />
           ))}
-          {lastPosts.map((frontMatter) => (
-            <PostCard key={frontMatter.title} {...frontMatter} />
-          ))}
-          {lastPosts.map((frontMatter) => (
-            <PostCard key={frontMatter.title} {...frontMatter} />
-          ))}
         </div>
       </section>
 
