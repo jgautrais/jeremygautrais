@@ -36,8 +36,10 @@ My website is an opportunity to try new tools and, while transitioning to Next.j
 
 Dark mode is also easily set up, just enable the [darkMode option](https://tailwindcss.com/docs/dark-mode) in tailwind.config.js. I wanted to include a dark mode toggle so I used [next-themes](https://github.com/pacocoursey/next-themes) library for this. Tailwind is paired easily with next-themes although I had some difficulty to make next-themes use a `class` attribute on html element to store data about light/dark theme instead `data-theme` attribute until I come across the relevant [documentation](https://github.com/pacocoursey/next-themes#class-instead-of-data-attribute). In the end, the setup of next-themes is pretty straightforward, just include the following in your `_app.js` file:
 
-```js
+```jsx
+// Test
 import { ThemeProvider } from 'next-themes';
+const n = 25;
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -48,9 +50,44 @@ function MyApp({ Component, pageProps }) {
 }
 ```
 
+```html
+<!-- Test -->
+<button
+  id="menuBtn"
+  aria-label="Toggle Mobile Menu"
+  className="hamburger block md:hidden focus:outline-none"
+  type="button"
+  onClick="{toggleMenu}"
+>
+  <span className="hamburger__top-bun"></span>
+  <span className="hamburger__bottom-bun"></span>
+</button>
+```
+
+```css
+/* HAMBURGER MENU */
+body {
+  height: 100%;
+}
+
+#__next {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-height: 100vh;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+```
+
 Finally, in your toggle component, you have to call the `useTheme()` method from next-themes (`resolvedTheme` variable is used throughout the whole app to store and retrieve info about current theme):
 
-```js
+```jsx
 import { useTheme } from 'next-themes';
 
 export default function Toggle() {
@@ -69,7 +106,7 @@ export default function Toggle() {
 
 Most of the content of my website is written in English, although, being born in France, I decided to provide translations for my home and about pages. For this I am using i18n module, and more specifically [next-translate](https://github.com/vinissimus/next-translate) library. The translations are easily set up following documentation. I also use the json translation files to store text content, in French and English, about my projects. With i18n, I can retrieve an [array of translation](https://github.com/vinissimus/next-translate#7-nested-translations) with the option `returnObjects`:
 
-```js
+```jsx
 import useTranslation from 'next-translate/useTranslation';
 
 const { t } = useTranslation('namespace');

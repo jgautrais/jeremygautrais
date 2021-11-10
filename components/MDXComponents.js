@@ -1,8 +1,8 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import palenight from 'prism-react-renderer/themes/palenight';
-import nightOwlLight from 'prism-react-renderer/themes/nightOwlLight';
+import vsDark from 'prism-react-renderer/themes/vsDark';
+import codeTheme from '../styles/codeTheme';
 import { useTheme } from 'next-themes';
 
 const CustomLink = (props) => {
@@ -24,7 +24,7 @@ const CodeBlock = (props) => {
   const { resolvedTheme } = useTheme();
   const className = props.children.props.className;
   const language = className.replace(/language-/, '');
-  const theme = resolvedTheme === 'light' ? nightOwlLight : palenight;
+  const theme = resolvedTheme === 'light' ? codeTheme : codeTheme;
 
   return (
     <Highlight
