@@ -14,7 +14,7 @@ const BlogPost = ({ title, summary, slug }) => {
               {title}
             </h4>
           </div>
-          <p className='text-gray-600 dark:text-gray-400'>{summary}</p>
+          <p className='text-gray-600 dark:text-gray-400 max-w-xl'>{summary}</p>
         </div>
       </a>
     </Link>

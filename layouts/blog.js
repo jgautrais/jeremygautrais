@@ -16,24 +16,26 @@ export default function BlogLayout({ children, frontMatter }) {
         <h1 className='mt-20 mb-4 text-3xl font-bold tracking-tight text-black md:text-5xl dark:text-white'>
           {frontMatter.title}
         </h1>
-        <div className='flex flex-col items-start justify-between w-full mt-2 md:flex-row md:items-center'>
+        <div className='flex flex-col items-start justify-between w-full mb-2 md:flex-row md:items-center'>
           <div className='flex items-center'>
-            <Image
-              alt='Jérémy Gautrais'
-              height={24}
-              width={24}
-              src='/static/images/profile_pic.jpg'
-              className='rounded-full grayscale'
-              objectFit='cover'
-            />
-            <p className='ml-2 text-sm text-gray-500 dark:text-gray-400'>
-              {'Jérémy Gautrais / '}
+            <p className='text-sm font-bold text-gray-500 dark:text-gray-400'>
+              / Published on:&nbsp;
+            </p>
+            <p className='text-sm text-gray-500 dark:text-gray-400'>
               {format(parseISO(frontMatter.publishedAt), 'MMMM dd, yyyy')}
             </p>
           </div>
         </div>
         <div className='w-full mt-4 prose dark:prose-dark max-w-none'>
           {children}
+        </div>
+        <div className='flex flex-col items-center justify-end w-full mt-20 md:flex-row md:items-center'>
+          <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
+            Last updated:&nbsp;
+          </p>
+          <p className='text-sm text-gray-500 dark:text-gray-400'>
+            {format(parseISO(frontMatter.lastUpdatedAt), 'MMMM dd, yyyy')}
+          </p>
         </div>
       </article>
     </Container>

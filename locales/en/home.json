@@ -8,7 +8,7 @@
     {
       "title": "Personal Website",
       "stack": "nextjs,tailwind,i18n",
-      "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The tranlsations are handled by <2>i18n</2> library.<1></1>You will find below some of the latest projects I have been working on.</0>",
+      "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The translations are handled by <2>i18n</2> library.<1></1>You will find below some of the latest projects I have been working on.</0>",
       "github": "https://github.com/jgautrais/jeremygautrais.fr"
     },
     {
