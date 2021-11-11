@@ -2,7 +2,7 @@
 title: 'From HTML to static site generator'
 publishedAt: '2021-11-10'
 lastUpdatedAt: '2021-11-11'
-summary: 'An overview of the tech stack I used for building this website, and some of the challenges I faced during hte process.'
+summary: 'An overview of the tech stack I used for building this website, and some of the challenges I faced during the process.'
 image: '/static/images/from-static-site-to-static-site/banner.jpeg'
 ---
 
@@ -34,12 +34,10 @@ My project to setup a personal blog was the perfect use case for me to practice 
 
 My website is an opportunity to try new tools and, while transitioning to Next.js, I decided to try a new CSS framework: [Tailwind CSS](https://tailwindcss.com/). There was a slight learning curve as I tried to translate my CSS ideas into Tailwind specific class naming. But, generally speaking, I really enjoyed working with Tailwind, the documentation is clear and easy to navigate.
 
-Dark mode is also easily set up, just enable the [darkMode option](https://tailwindcss.com/docs/dark-mode) in tailwind.config.js. I wanted to include a dark mode toggle so I used [next-themes](https://github.com/pacocoursey/next-themes) library for this. Tailwind is paired easily with next-themes although I had some difficulty to make next-themes use a `class` attribute on html element to store data about light/dark theme instead `data-theme` attribute until I come across the relevant [documentation](https://github.com/pacocoursey/next-themes#class-instead-of-data-attribute). In the end, the setup of next-themes is pretty straightforward, just include the following in your `_app.js` file:
+Dark mode is also easily set up, just enable the [darkMode option](https://tailwindcss.com/docs/dark-mode) in tailwind.config.js. I wanted to include a dark mode toggle so I used [next-themes](https://github.com/pacocoursey/next-themes) library for this. Tailwind is paired easily with next-themes although I had some difficulty to make next-themes use a `class` attribute on html element to store data about light/dark theme instead of `data-theme` attribute until I come across the relevant [documentation](https://github.com/pacocoursey/next-themes#class-instead-of-data-attribute). In the end, the setup of next-themes is pretty straightforward, just include the following in your `_app.js` file:
 
 ```jsx
-// Test
 import { ThemeProvider } from 'next-themes';
-const n = 25;
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -47,52 +45,6 @@ function MyApp({ Component, pageProps }) {
       <Component {...pageProps} />
     </ThemeProvider>
   );
-}
-```
-
-```html
-<!-- Test -->
-<button
-  id="menuBtn"
-  aria-label="Toggle Mobile Menu"
-  className="hamburger block md:hidden focus:outline-none"
-  type="button"
-  onClick="{toggleMenu}"
->
-  <span className="hamburger__top-bun"></span>
-  <span className="hamburger__bottom-bun"></span>
-</button>
-```
-
-```php
-<?php
-$test = "test";
-
-public function myApp (string $x) {
-  return $x;
-}
-
-?>
-```
-
-```css
-/* HAMBURGER MENU */
-body {
-  height: 100%;
-}
-
-#__next {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  min-height: 100vh;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
 }
 ```
 
@@ -126,6 +78,13 @@ const array = t('key', {}, { returnObjects: true });
 
 I can then generate components for each project by iterating over the translations' array. Don't forget the empty brackets in the middle! They take optional query parameters but should still be present within the input parameters even if empty. It took me hours to figure out that the `t` function was not returning an array of translations for omitting to provide these empty brackets 🤯
 
+## MDX
+
+The content of this blog is handled by [MDX](https://mdxjs.com/). It is an extension of the traditional markdown language, which allow to use JSX and integrate React components within markdown files. For example, in this blog, the images, links and code blocks are each rendered by custom components.  
+This is a great tool to provide richer blogging experience.  
+I use [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) to compile and bundle mdx files so that they can be interpreted in the browser.  
+For code blocks in particular, I use [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) plugin. It allows me to use a custom color theme for syntax highlighting. Thanks to the proper class names it returns, I can define specific color for each code item.
+
 ---
 
 ## Final words
@@ -142,6 +101,7 @@ After the rebuild, I end up using the following stack:
 - Next.js
 - Tailwind CSS (switched from CSS/Sass)
 - i18n (next-translate) library for translations
+- MDX for blog content
 - Deployed with Vercel
 
 You can browse the code [here](https://github.com/jgautrais/jeremygautrais.fr).

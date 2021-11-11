@@ -69,7 +69,7 @@ const Projects = () => {
     }
 
     return (
-      <span className={`mt-0.5 text-xs mr-2 text-gray-500 dark:text-gray-400`}>
+      <span className={`mt-0.5 text-sm mr-2 text-gray-500 dark:text-gray-400`}>
         <span className='text-gray-300 dark:text-gray-600'>#</span>
         {name}
       </span>
@@ -100,7 +100,7 @@ const Projects = () => {
                 project.live
                   ? 'border-gray-100 dark:border-gray-500'
                   : 'border-gray-300 dark:border-gray-100'
-              } dark:border-opacity-25 py-4 md:py-6 px-6 mb-12 rounded-xl max-w-sm md:max-w-xl lg:max-w-sm mx-auto`}
+              } dark:border-opacity-25 py-4 md:py-6 px-6 mb-12 rounded-xl max-w-sm md:max-w-2xl lg:max-w-sm mx-auto`}
             >
               <H3>{project.title}</H3>
               <div className='flex flex-wrap'>
@@ -141,7 +141,7 @@ const Projects = () => {
                   components={[
                     <p
                       key='0'
-                      className='text-sm text-gray-500 dark:text-gray-400 mt-4 md:mt-0 lg:ml-0 lg:mt-4'
+                      className=' text-gray-600 dark:text-gray-300 mt-4 md:mt-0 lg:ml-0 lg:mt-4'
                     />,
                     <br key='1' />,
                     <strong

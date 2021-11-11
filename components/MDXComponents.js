@@ -2,7 +2,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import Prism from 'prism-react-renderer/prism';
-import codeTheme from '../styles/codeTheme';
 
 (typeof global !== 'undefined' ? global : window).Prism = Prism;
 
@@ -35,6 +34,7 @@ const CodeBlock = (props) => {
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: '20px' }}>
+          <p className='language-info'>{language.toUpperCase()}</p>
           {tokens.map((line, i) => (
             <div key={i} {...getLineProps({ line, key: i })}>
               {line.map((token, key) => (

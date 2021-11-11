@@ -2,6 +2,7 @@ import { join } from 'path';
 import { readFileSync, readdirSync } from 'fs';
 import { bundleMDX } from 'mdx-bundler';
 import matter from 'gray-matter';
+import readingTime from 'reading-time';
 
 export async function getFiles(type) {
   return readdirSync(join(process.cwd(), 'data', type));
@@ -17,6 +18,8 @@ export async function getFileBySlug(type, slug) {
   return {
     code,
     frontMatter: {
+      wordCount: source.split(/\s+/gu).length,
+      readingTime: readingTime(source),
       slug: slug || null,
       ...frontmatter,
     },
@@ -36,6 +39,8 @@ export async function getAllFilesFrontMatter(type) {
     return [
       {
         ...data,
+        wordCount: source.split(/\s+/gu).length,
+        readingTime: readingTime(source),
         slug: postSlug.replace('.mdx', ''),
       },
       ...allPosts,

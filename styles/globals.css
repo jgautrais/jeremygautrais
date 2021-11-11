@@ -310,10 +310,29 @@ input[type='email'] {
   appearance: none;
 }
 
+/* Blog styling */
+.prose {
+  font-size: 0.95rem !important;
+}
+
 /* Codeblocks styling */
 .prism-code {
   background-color: #282828 !important;
   color: #fafafa !important;
+}
+
+.prism-code .language-info {
+  position: relative;
+  top: -0.5rem;
+  margin: 0 0 0 auto;
+  max-width: -webkit-min-content;
+  max-width: -moz-min-content;
+  max-width: min-content;
+  text-align: center;
+  padding: 0.2rem 0.6rem 0;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  background-color: #505050 !important;
 }
 
 .token.comment {
@@ -330,26 +349,27 @@ input[type='email'] {
   color: #e05c5a !important;
 }
 
-.token.boolean {
+.token.boolean,
+.token.selector {
   color: #5ac1e0 !important;
 }
 
-.token.punctuation,
-.token.tag.punctuation,
-.token.operator {
-  color: #fab400 !important;
+.token.class-name {
+  color: #5ae0c3 !important;
 }
 
 .token.plain,
 .token.tag,
 .token.variable,
 .token.function,
-.token.selector,
 .token.unit,
 .token.tag.class-name,
 .token.maybe-class-name,
-.token.parameter.punctuation,
-.token.tag.attr-value.punctuation {
+.token.tag.attr-name,
+.token.template-string,
+.token.property-access,
+.token.parameter,
+.token.console {
   color: #fafafa !important;
 }
 
@@ -358,9 +378,36 @@ input[type='email'] {
   color: #cff570 !important;
 }
 
-.token.tag.attr-name,
-.token.property,
-.token.parameter {
+.token.property {
   color: #d2d2d2 !important;
+}
+
+.token.punctuation,
+.token.parameter.punctuation,
+.token.tag.attr-value.punctuation {
+  color: #bebebe !important;
+}
+
+.token.tag.punctuation,
+.token.operator,
+.token.delimiter,
+.token.selector.parent,
+.language-css .token.variable {
+  color: #fab400 !important;
+}
+
+.language-css .token.function,
+.language-scss .token.function {
+  color: #d69e9d !important;
+}
+
+code {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-sm py-1 mx-0.5;
+  font-weight: 400 !important;
+}
+
+code::before,
+code::after {
+  @apply text-white dark:text-gray-800;
 }
 /*# sourceMappingURL=globals.css.map */

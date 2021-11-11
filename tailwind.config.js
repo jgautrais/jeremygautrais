@@ -34,7 +34,6 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.700'),
               },
-              code: { color: theme('colors.blue.400') },
             },
             'h2,h3,h4': {
               'scroll-margin-top': '2rem',
@@ -52,13 +51,12 @@ module.exports = {
               '&:hover': {
                 color: theme('colors.blue.600'),
               },
-              code: { color: theme('colors.pink.400') },
             },
             blockquote: {
               borderLeftColor: theme('colors.gray.700'),
               color: theme('colors.gray.300'),
             },
-            code: { color: theme('colors.pink.400') },
+            code: { color: theme('colors.pink.300') },
             'h2,h3,h4': {
               color: theme('colors.gray.100'),
               'scroll-margin-top': '2rem',
