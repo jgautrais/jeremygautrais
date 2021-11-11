@@ -12,7 +12,7 @@ export default function Header({ mounted }) {
 
   return (
     <div className='w-full z-10 sticky top-0 bg-white dark:bg-dark-theme mt-4 md:pt-2'>
-      <header className='flex items-start justify-between max-w-5xl mx-auto pt-1 md:pt-2 pb-1 px-8 sm:px-16'>
+      <header className='flex items-start justify-between max-w-5xl mx-auto pt-1 md:pt-2 pb-1 px-6 sm:px-16'>
         <Link href='/' passHref>
           <h1 className='z-50 text-xl leading-5 font-bold tracking-tighter cursor-pointer min-w-max self-center order-1'>
             Jérémy

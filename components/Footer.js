@@ -17,7 +17,7 @@ const Footer = () => {
   MenuLink.displayName = 'MenuLink';
 
   return (
-    <div className='max-w-5xl w-full px-8 sm:px-16 mt-3 pb-40'>
+    <div className='max-w-5xl w-full px-6 sm:px-16 mt-3 pb-40'>
       <footer className='border-t border-gray-200 dark:border-gray-700 mt-28 md:mt-36 pt-10'>
         <div className='flex'>
           <div className='mr-24 sm:mr-32'>

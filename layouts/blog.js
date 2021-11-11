@@ -29,7 +29,7 @@ export default function BlogLayout({ children, frontMatter }) {
         <div className='w-full mt-4 prose dark:prose-dark max-w-none'>
           {children}
         </div>
-        <div className='flex flex-col items-center justify-end w-full mt-20 md:flex-row md:items-center'>
+        <div className='flex flex-row items-center justify-end w-full mt-20'>
           <p className='text-sm font-light text-gray-500 dark:text-gray-400'>
             Last updated:&nbsp;
           </p>

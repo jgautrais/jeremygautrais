@@ -1,9 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import vsDark from 'prism-react-renderer/themes/vsDark';
+import Prism from 'prism-react-renderer/prism';
 import codeTheme from '../styles/codeTheme';
-import { useTheme } from 'next-themes';
+
+(typeof global !== 'undefined' ? global : window).Prism = Prism;
+
+require('prismjs/components/prism-php');
 
 const CustomLink = (props) => {
   const href = props.href;
@@ -21,17 +24,14 @@ const CustomLink = (props) => {
 };
 
 const CodeBlock = (props) => {
-  const { resolvedTheme } = useTheme();
   const className = props.children.props.className;
   const language = className.replace(/language-/, '');
-  const theme = resolvedTheme === 'light' ? codeTheme : codeTheme;
 
   return (
     <Highlight
       {...defaultProps}
       code={props.children.props.children}
       language={language}
-      theme={theme}
     >
       {({ className, style, tokens, getLineProps, getTokenProps }) => (
         <pre className={className} style={{ ...style, padding: '20px' }}>

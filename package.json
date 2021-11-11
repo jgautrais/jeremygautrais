@@ -22,6 +22,7 @@
     "next-translate": "^1.2.0",
     "postcss": "^8.3.11",
     "prism-react-renderer": "^1.2.1",
+    "prismjs": "^1.25.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "tailwindcss": "^2.2.19"

@@ -54,7 +54,7 @@ export default function Blog({ posts }) {
             />
           </svg>
         </div>
-        <h3 className='font-bold text-2xl md:text-3xl tracking-tight mb-4 mt-16 text-black dark:text-white'>
+        <h3 className='font-bold text-2xl md:text-3xl tracking-tight mb-8 mt-16 text-black dark:text-white'>
           All Posts
         </h3>
         {!filteredBlogPosts.length && (

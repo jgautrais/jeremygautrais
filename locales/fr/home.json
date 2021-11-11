@@ -7,13 +7,13 @@
   "projectItems": [
     {
       "title": "Site Personnel",
-      "stack": "nextjs,tailwind,i18n",
+      "stack": "nextjs,tailwind,i18n,mdx",
       "description": "<0>Ce site personnel est un projet en développement continu. Pour chaque nouvelle version, j'essaie d'améliorer la qualité et l'efficacité de mon code.<1></1>Ce site est construit comme une application React avec le framework <2>Next.js</2>.<1></1>J'utilise le framework CSS <2>Tailwind</2> pour le style et les traductions sont gérées avec la librairie <2>i18n</2>.<1></1>Vous trouverez ci-dessous quelques uns des derniers projets sur lesquels j'ai travaillé.</0>",
       "github": "https://github.com/jgautrais/jeremygautrais.fr"
     },
     {
       "title": "Aest game",
-      "stack": "html,css,js,sass",
+      "stack": "html,sass,js",
       "description": "<0>Aest est un jeu tentant de reproduire un outil d'entraînement pour l'observation des maladies fongiques des cultures végétales.<1></1>Cette page web statique a été réalisée avec HTML, <2>Sass</2> pour le CSS et JavaScript. La librairie <2>jQuery</2> est utilisée pour faciliter la manipulation du DOM.</0>",
       "github": "https://github.com/jgautrais/aest",
       "live": "https://aest.vercel.app/",

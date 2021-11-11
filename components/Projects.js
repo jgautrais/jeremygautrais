@@ -10,7 +10,7 @@ const Projects = () => {
 
   const H3 = ({ children }) => {
     return (
-      <h3 className='text-2xl sm:text-3xl font-semibold text-gray-900 dark:text-gray-100 mt-8 mt-0'>
+      <h3 className='text-xl sm:text-2xl font-semibold text-gray-900 dark:text-gray-100 mt-8 mt-0'>
         {children}
       </h3>
     );
@@ -24,19 +24,19 @@ const Projects = () => {
 
     switch (tech) {
       case 'html':
-        name = 'HTML';
+        name = 'html';
         color = 'text-color-html';
         break;
       case 'css':
-        name = 'CSS';
+        name = 'css';
         color = 'text-color-css';
         break;
       case 'js':
-        name = 'JS';
+        name = 'javascript';
         color = 'text-color-js';
         break;
       case 'sass':
-        name = 'Sass';
+        name = 'sass';
         color = 'text-color-sass';
         break;
       case 'react':
@@ -44,7 +44,7 @@ const Projects = () => {
         color = 'text-color-react';
         break;
       case 'nodejs':
-        name = 'Node.js';
+        name = 'node.js';
         color = 'text-color-nodejs';
         break;
       case 'mongo':
@@ -52,22 +52,25 @@ const Projects = () => {
         color = 'text-color-mongo';
         break;
       case 'nextjs':
-        name = 'Next.js';
+        name = 'next.js';
         break;
       case 'tailwind':
-        name = 'Tailwind';
+        name = 'tailwind';
         color = 'text-color-tailwind';
         break;
       case 'i18n':
         name = 'i18n';
         color = 'text-color-i18n';
         break;
+      case 'mdx':
+        name = 'mdx';
+        color = 'text-color-i18n';
+        break;
     }
 
     return (
-      <span
-        className={`px-2 py-1 mt-2 text-xs font-semibold mr-2 rounded-md border bg-gray-100 border-gray-200 dark:bg-gray-800 dark:border-gray-700 ${color}`}
-      >
+      <span className={`mt-0.5 text-xs mr-2 text-gray-500 dark:text-gray-400`}>
+        <span className='text-gray-300 dark:text-gray-600'>#</span>
         {name}
       </span>
     );
@@ -77,7 +80,7 @@ const Projects = () => {
     <a
       ref={ref}
       href={href}
-      className='block font-medium text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-200 inline-block w-min mt-2 first:mr-20 first:sm:mr-32'
+      className='block text-sm font-medium text-blue-500 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-200 inline-block w-min mt-2 first:mr-20 first:sm:mr-32'
       target='_blank'
       rel='noreferrer'
     >
@@ -97,7 +100,7 @@ const Projects = () => {
                 project.live
                   ? 'border-gray-100 dark:border-gray-500'
                   : 'border-gray-300 dark:border-gray-100'
-              } dark:border-opacity-25 py-4 md:py-6 px-8 mb-12 rounded-xl`}
+              } dark:border-opacity-25 py-4 md:py-6 px-6 mb-12 rounded-xl max-w-sm md:max-w-xl lg:max-w-sm mx-auto`}
             >
               <H3>{project.title}</H3>
               <div className='flex flex-wrap'>
@@ -138,7 +141,7 @@ const Projects = () => {
                   components={[
                     <p
                       key='0'
-                      className='font-medium text-gray-500 dark:text-gray-400 mt-4 md:mt-0 lg:ml-0 lg:mt-4'
+                      className='text-sm text-gray-500 dark:text-gray-400 mt-4 md:mt-0 lg:ml-0 lg:mt-4'
                     />,
                     <br key='1' />,
                     <strong
@@ -149,7 +152,7 @@ const Projects = () => {
                 />
               </div>
 
-              <div className='mt-4 md:mt-6'>
+              <div className='mt-4 md:mt-6 flex flex-row justify-between md:block lg:flex'>
                 <Link href={project.github} passHref>
                   <ProjectLink>Github</ProjectLink>
                 </Link>

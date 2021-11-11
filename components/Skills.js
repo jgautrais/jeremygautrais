@@ -13,8 +13,8 @@ const Skills = () => {
 
   const PSkills = ({ children }) => {
     return (
-      <p className='mt-1.5 flex items-center font-medium'>
-        <span className='d-block w-3 h-0.5 ml-3 mr-3 mb-0.5 bg-gradient-to-r from-blue-300 dark:from-blue-600 to-blue-500 rounded-sm'></span>
+      <p className='mt-1.5 fonnt-normal flex items-center'>
+        <span className='d-block w-2 h-0.5 ml-3 mr-2 mb-0.5 bg-gradient-to-r from-blue-300 dark:from-blue-600 to-blue-500 rounded-sm'></span>
         {children}
       </p>
     );

@@ -44,7 +44,7 @@ export default function Container({ children, ...customMeta }) {
         <meta name='twitter:image' content={meta.image} />
       </Head>
       <Header mounted={mounted} />
-      <main className='max-w-5xl w-full flex-grow px-8 sm:px-16 mt-3'>
+      <main className='max-w-5xl w-full flex-grow px-6 sm:px-16 mt-3'>
         {children}
       </main>
       <Footer />
