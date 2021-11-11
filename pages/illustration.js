@@ -1,7 +1,7 @@
 import Container from '../components/Container';
 import Image from 'next/image';
 import * as basicLightbox from 'basiclightbox';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export default function Illustration() {
   const illustrations = [
@@ -372,7 +372,7 @@ export default function Illustration() {
     );
   };
 
-  const handleClick = (title, src, format) => (e) => {
+  const handleClick = (title, src) => (e) => {
     const instance = basicLightbox.create(`
     <div class="modal">
     <div
@@ -420,7 +420,7 @@ export default function Illustration() {
             return (
               <div
                 className='illustration__img relative mx-auto mb-16 md:mb-8 px-4 w-80 md:w-64 h-auto'
-                onClick={handleClick(x.title, x.src, x.format)}
+                onClick={handleClick(x.title, x.src)}
                 key={i}
               >
                 <Image
@@ -428,6 +428,7 @@ export default function Illustration() {
                   src={`/static/images/illustration/${x.src}`}
                   layout='responsive'
                   objectFit='cover'
+                  sizes='50vw'
                   width={x.format === '1x1' ? 100 : 300}
                   height={x.format === '1x1' ? 100 : 400}
                 />

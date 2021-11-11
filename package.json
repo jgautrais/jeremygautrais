@@ -9,19 +9,27 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "autoprefixer": "^10.3.3",
+    "@next/mdx": "^12.0.3",
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.4.0",
     "basiclightbox": "^5.0.4",
+    "date-fns": "^2.25.0",
+    "gray-matter": "^4.0.3",
     "i18n": "^0.13.3",
-    "next": "11.1.2",
+    "mdx-bundler": "^7.0.0",
+    "next": "12.0.3",
     "next-themes": "0.0.15",
-    "next-translate": "^1.1.1",
-    "postcss": "^8.3.6",
+    "next-translate": "^1.2.0",
+    "postcss": "^8.3.11",
+    "prism-react-renderer": "^1.2.1",
+    "prismjs": "^1.25.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "tailwindcss": "^2.2.9"
+    "reading-time": "^1.5.0",
+    "tailwindcss": "^2.2.19"
   },
   "devDependencies": {
-    "eslint": "7.32.0",
-    "eslint-config-next": "11.1.2"
+    "eslint": "^7.23.0",
+    "eslint-config-next": "12.0.3"
   }
 }

@@ -1,18 +1,19 @@
 {
   "header": "<0><1>Hi</1>, I'm Jérémy</0>",
   "sub_header": "<0>I'm a junior Web Developer, focused on <1>JavaScript</1> and <1>PHP</1> development.<2></2>I have a diverse set of skills, ranging from design to React, Node.js and Symfony.</0>",
+  "posts": "Last posts",
   "skills": { "title": "I have experience with:", "tools": "Tools" },
   "projects": "Projects",
   "projectItems": [
     {
       "title": "Personal Website",
-      "stack": "nextjs,tailwind,i18n",
-      "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The tranlsations are handled by <2>i18n</2> library.<1></1>You will find below some of the latest projects I have been working on.</0>",
+      "stack": "nextjs,tailwind,i18n,mdx",
+      "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The translations are handled by <2>i18n</2> library.<1></1>You will find below some of the latest projects I have been working on.</0>",
       "github": "https://github.com/jgautrais/jeremygautrais.fr"
     },
     {
       "title": "Aest game",
-      "stack": "html,css,js,sass",
+      "stack": "html,sass,js",
       "description": "<0>Aest is a game attempting to reproduce a training tool for visual assessment of crop diseases.<1></1>The project is ongoing and I am planning to add more features such as text feedbacks.<1></1>The game is build as a static website using HTML, <2>Sass</2> for CSS and JavaScript. <2>jQuery</2> library is used to ease DOM manipulations.</0>",
       "github": "https://github.com/jgautrais/aest",
       "live": "https://aest.vercel.app/",

@@ -5,19 +5,20 @@ import Image from 'next/image';
 import useTranslation from 'next-translate/useTranslation';
 import Trans from 'next-translate/Trans';
 
+const Section = ({ children }) => {
+  const classes = `mt-3 mb-20`;
+
+  return <section className={classes}>{children}</section>;
+};
+const H2 = ({ children }) => {
+  return <h2 className='text-3xl sm:text-4xl font-bold mb-6'>{children}</h2>;
+};
+
 export default function Illustration() {
   const router = useRouter();
   const { locale } = router;
   const { t } = useTranslation('about');
 
-  const Section = ({ children }) => {
-    const classes = `mt-3 mb-20`;
-
-    return <section className={classes}>{children}</section>;
-  };
-  const H2 = ({ children }) => {
-    return <h2 className='text-3xl sm:text-4xl font-bold mb-6'>{children}</h2>;
-  };
   return (
     <Container
       title={

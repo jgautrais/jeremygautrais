@@ -263,3 +263,111 @@ body.non-scrollable {
     font-style: italic;
   }
 }
+
+/* Remove Safari input shadow on mobile */
+input[type='text'],
+input[type='email'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Blog styling */
+
+.prose {
+  font-size: 0.95rem !important;
+}
+
+/* Codeblocks styling */
+
+.prism-code {
+  background-color: rgb(40, 40, 40) !important;
+  color: rgb(250, 250, 250) !important;
+}
+
+.prism-code .language-info {
+  position: relative;
+  top: -0.5rem;
+  margin: 0 0 0 auto;
+  max-width: min-content;
+  text-align: center;
+  padding: 0.2rem 0.6rem 0;
+  border-radius: 0.25rem;
+  font-weight: bold;
+  background-color: rgb(80, 80, 80) !important;
+}
+
+.token.comment {
+  color: rgb(120, 120, 120) !important;
+}
+
+.token.keyword,
+.token.number {
+  color: rgb(214, 158, 157) !important;
+}
+
+.token.number,
+.token.keyword.type-hint {
+  color: rgb(224, 92, 90) !important;
+}
+
+.token.boolean,
+.token.selector {
+  color: rgb(90, 193, 224) !important;
+}
+
+.token.class-name {
+  color: rgb(90, 224, 195) !important;
+}
+
+.token.plain,
+.token.tag,
+.token.variable,
+.token.function,
+.token.unit,
+.token.tag.class-name,
+.token.maybe-class-name,
+.token.tag.attr-name,
+.token.template-string,
+.token.property-access,
+.token.parameter,
+.token.console {
+  color: rgb(250, 250, 250) !important;
+}
+
+.token.string,
+.token.tag.attr-value {
+  color: rgb(207, 245, 112) !important;
+}
+
+.token.property {
+  color: rgb(210, 210, 210) !important;
+}
+.token.punctuation,
+.token.parameter.punctuation,
+.token.tag.attr-value.punctuation {
+  color: rgb(190, 190, 190) !important;
+}
+
+.token.tag.punctuation,
+.token.operator,
+.token.delimiter,
+.token.selector.parent,
+.language-css .token.variable {
+  color: rgb(250, 180, 0) !important;
+}
+
+.language-css .token.function,
+.language-scss .token.function {
+  color: rgb(214, 158, 157) !important;
+}
+
+code {
+  @apply bg-gray-100 dark:bg-gray-700 rounded-sm py-1 mx-0.5;
+  font-weight: 400 !important;
+}
+
+code::before,
+code::after {
+  @apply text-white dark:text-gray-800;
+}

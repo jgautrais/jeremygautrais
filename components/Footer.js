@@ -17,10 +17,13 @@ const Footer = () => {
   MenuLink.displayName = 'MenuLink';
 
   return (
-    <div className='max-w-5xl w-full px-8 sm:px-16 mt-3 pb-40'>
+    <div className='max-w-5xl w-full px-6 sm:px-16 mt-3 pb-40'>
       <footer className='border-t border-gray-200 dark:border-gray-700 mt-28 md:mt-36 pt-10'>
         <div className='flex'>
           <div className='mr-24 sm:mr-32'>
+            <p className='text-gray-600 dark:text-gray-300 font-bold mb-7'>
+              SOCIAL
+            </p>
             <a
               href='https://www.linkedin.com/in/jgautrais/'
               target='_blank'
@@ -47,6 +50,9 @@ const Footer = () => {
             </a>
           </div>
           <div>
+            <p className='text-gray-600 dark:text-gray-300 font-bold mb-7'>
+              MORE
+            </p>
             <Link href='/#projects' passHref>
               <MenuLink>{t('navbar.projects')}</MenuLink>
             </Link>
@@ -55,10 +61,6 @@ const Footer = () => {
             </Link>
           </div>
         </div>
-
-        <p className='text-xs text-gray-500 dark:text-gray-400 mt-20'>
-          &copy; 2021 - Jérémy Gautrais
-        </p>
       </footer>
     </div>
   );
