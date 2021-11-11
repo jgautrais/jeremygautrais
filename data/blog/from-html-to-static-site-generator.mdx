@@ -54,6 +54,8 @@ Finally, in your toggle component, you have to call the `useTheme()` method from
 import { useTheme } from 'next-themes';
 
 export default function Toggle() {
+  const { resolvedTheme, setTheme } = useTheme();
+
   const handleThemeChange = () =>
     setTheme(resolvedTheme === 'dark' ? 'light' : 'dark');
 
