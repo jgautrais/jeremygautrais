@@ -13,17 +13,6 @@ module.exports = {
       },
       colors: {
         'dark-theme': '#111',
-        'color-html': '#f63',
-        'color-css': '#3ae',
-        'color-js': '#fc2',
-        'color-sass': '#c69',
-        'color-react': '#5df',
-        'color-nodejs': '#9c4',
-        'color-mongo': '#0b4',
-        'color-tailwind': '#0bd',
-        'color-i18n': '#099',
-        'tech-light': '#eee',
-        'tech-dark': '#111',
       },
       typography: (theme) => ({
         DEFAULT: {

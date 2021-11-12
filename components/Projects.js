@@ -20,51 +20,40 @@ const Projects = () => {
 
   const ProjectTech = ({ tech }) => {
     let name = null;
-    let color = null;
 
     switch (tech) {
       case 'html':
         name = 'html';
-        color = 'text-color-html';
         break;
       case 'css':
         name = 'css';
-        color = 'text-color-css';
         break;
       case 'js':
         name = 'javascript';
-        color = 'text-color-js';
         break;
       case 'sass':
         name = 'sass';
-        color = 'text-color-sass';
         break;
       case 'react':
-        name = 'React';
-        color = 'text-color-react';
+        name = 'react';
         break;
       case 'nodejs':
         name = 'node.js';
-        color = 'text-color-nodejs';
         break;
       case 'mongo':
         name = 'mongoDB';
-        color = 'text-color-mongo';
         break;
       case 'nextjs':
         name = 'next.js';
         break;
       case 'tailwind':
         name = 'tailwind';
-        color = 'text-color-tailwind';
         break;
       case 'i18n':
         name = 'i18n';
-        color = 'text-color-i18n';
         break;
       case 'mdx':
         name = 'mdx';
-        color = 'text-color-i18n';
         break;
     }
 

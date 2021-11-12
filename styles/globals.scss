@@ -348,7 +348,9 @@ input[type='email'] {
 }
 .token.punctuation,
 .token.parameter.punctuation,
-.token.tag.attr-value.punctuation {
+.token.tag.attr-value.punctuation,
+.token.tag.spread.punctuation,
+.token.tag.script.language-javascript.punctuation {
   color: rgb(190, 190, 190) !important;
 }
 
