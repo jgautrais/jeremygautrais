@@ -52,10 +52,7 @@ export default function Illustration() {
         <Trans
           i18nKey='about:description'
           components={[
-            <p
-              key='0'
-              className='font-medium text-gray-600 dark:text-gray-400 max-w-xl'
-            />,
+            <p key='0' className='text-gray-600 dark:text-gray-400 max-w-xl' />,
             <br key='1' />,
           ]}
         />
@@ -64,7 +61,7 @@ export default function Illustration() {
       <Section>
         <H2>{t('contact.title')}</H2>
         <div className='pb-8 mb-12 rounded-xl' id='contact'>
-          <p className='flex mb-6 font-medium text-gray-600 dark:text-gray-300'>
+          <p className='flex mb-6 text-gray-600 dark:text-gray-300'>
             {t('contact.text')}
           </p>
           <div className='flex'>
@@ -77,7 +74,7 @@ export default function Illustration() {
                 href='mailto:contact@jeremygautrais.fr'
                 className='block mb-4 hover:underline'
               >
-                contact@jeremygautrais.fr
+                contact
               </a>
               <a
                 href='https://www.linkedin.com/in/jgautrais/'

@@ -30,7 +30,7 @@ export default function Blog({ posts }) {
     >
       <Section>
         <H2>Blog</H2>
-        <div className='relative w-full mb-4'>
+        <div className='relative w-full mb-4 max-w-xl'>
           <input
             aria-label='Search articles'
             type='text'

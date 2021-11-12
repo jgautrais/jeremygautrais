@@ -384,8 +384,8 @@ export default function Illustration() {
                   loading='lazy'
                 />
               </div>
-        <p class="title">${title}</p>
-        <p class="hint">Click anywhere outside to close.</p>
+        <p class="title"><span class="title-span">#</span>${title}</p>
+        <p class="hint">Click outside to close</p>
     </div>
 `);
 
@@ -428,7 +428,7 @@ export default function Illustration() {
                   src={`/static/images/illustration/${x.src}`}
                   layout='responsive'
                   objectFit='cover'
-                  sizes='50vw'
+                  sizes='25vw'
                   width={x.format === '1x1' ? 100 : 300}
                   height={x.format === '1x1' ? 100 : 400}
                 />

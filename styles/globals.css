@@ -287,12 +287,15 @@ body.non-scrollable {
 }
 
 .basicLightbox__placeholder .title {
+  @apply text-gray-200;
   padding: 0.6rem 0 0.3rem;
-  border-bottom: 3px solid #3b82f6;
   font-size: 2rem;
   font-weight: 600;
-  color: #eee;
   line-height: 1;
+}
+
+.basicLightbox__placeholder .title-span {
+  @apply text-gray-400;
 }
 
 .basicLightbox__placeholder .hint {
