@@ -3,12 +3,12 @@ title: 'From HTML to static site generator'
 publishedAt: '2021-11-12'
 lastUpdatedAt: '2021-11-12'
 summary: 'An overview of the tech stack I used for building this website, and some of the challenges I faced during the process.'
-image: '/static/images/from-static-site-to-static-site/banner.jpeg'
+image: '/static/images/from-html-to-static-site-generator/banner.jpeg'
 ---
 
 <Image
   alt={`Next.js + Tailwind`}
-  src={`/static/images/from-static-site-to-static-site/banner.jpeg`}
+  src={`/static/images/from-html-to-static-site-generator/banner.jpeg`}
   width={1400 / 2}
   height={787 / 2}
   priority
@@ -86,6 +86,24 @@ The content of this blog is handled by [MDX](https://mdxjs.com/). It is an exten
 This is a great tool to provide richer blogging experience.  
 I use [mdx-bundler](https://github.com/kentcdodds/mdx-bundler) to compile and bundle mdx files so that they can be interpreted in the browser.  
 For code blocks in particular, I use [prism-react-renderer](https://github.com/FormidableLabs/prism-react-renderer) plugin. It allows me to use a custom color theme for syntax highlighting. Thanks to the proper class names it returns, I can define specific color for each code item.
+
+## Image gallery
+
+Since I am producing voxel art and vector art, I included an [illustration](/illustration) section where I display my creations. This consists in an image gallery, which makes extensive use of the custom Next.js [Image](https://nextjs.org/docs/api-reference/next/image) component. It includes various optimizations to help dealing with images, which come in handy for a gallery with many illustrations.  
+In particular, from one image source, the component generates the appropriate image `srcset` and even provides images in [webp](https://css-tricks.com/using-webp-images/) format for browsers that support it.
+Let's demonstrate these features on a concrete example for my gallery. In the image below, you can see the files that are loaded for one of my illustration:
+
+<Image
+  alt={`Next.js Image Component`}
+  src={`/static/images/from-html-to-static-site-generator/next-image.png`}
+  width={1400 / 2}
+  height={787 / 2}
+  className='rounded-lg'
+/>
+
+On the left, on mobile view, you can see the first file loaded (row highlighted in green), the miniature, is provided in webp format and is only 3.8kB ! Once we click on the miniature, a lightbox is loaded with the original, full-sized original image which is 67.5kB in size (second row). That's almost a factor 18 size reduction, which allow the initial gallery page to load very fast.
+On the right, on desktop view, the miniature file size is slightly larger, 8.3 kB although still way lighter than the original size.  
+In addition to generating custom srcset, the Image component also includes lazy loading, so that miniatures are not loaded until they come close to the viewport to ease initial page load.
 
 ---
 
