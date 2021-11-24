@@ -4,7 +4,7 @@ import { getFiles, getFileBySlug } from '../../utils/mdx';
 import Layout from '../../layouts/blog';
 import components from '../../components/MDXComponents';
 
-export default function Blog({ code, tweets, frontMatter }) {
+export default function Blog({ code, frontMatter }) {
   const Component = useMemo(() => getMDXComponent(code), [code]);
 
   return (
