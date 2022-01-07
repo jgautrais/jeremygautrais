@@ -6,243 +6,60 @@ summary: 'Learn how I built a component using the HTML5 Drag and Drop API with J
 ---
 
 The HTML [Drag and Drop](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) API allows us to handle and customize drag-and-drop events in browsers. In this post, I will explain how I used this API to create a custom component, combined with a search filter.  
-The final code and a demo is available at the following [Codepen](https://codepen.io/jgautrais/pen/MWvPaoy). In the article, I will go through a step-by-step process to recreate this component.
+The final code and a demo is available at the following [Codepen](https://codepen.io/jgautrais/pen/MWvPaoy). In the article, I will explain how I customized a base template and implemented a filter feature to quickly search through available items to be dragged.
 
-To build this component,
+## Creating the component skeleton
 
-## Creating the HTML skeleton
+To build this component, I used various resources to create a skeleton of the drag and drop component, in particular:
 
-By default, only texts, links and images are draggable. To make any other element draggable, we need to set the `draggable="true"` attribute on that element.  
-In our component, we are creating an interface to select skills. The initial markup for these skill items and the drop-zone which will receive these items looks like this:
+- [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/)
+- [Creating a Parking Game With the HTML Drag and Drop API](https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/)
+
+The objective of this component is to select various skills. Therefore we will be manipulating skill items in this example.
+Using resources mentioned above, I ended up with the following component:
 
 ```html
 <div class="container">
+  <!-- Filter item -->
+  <label for="search-input">Search skills:</label>
+  <input type="text" value="" placeholder="skill" id="search-input" />
+
   <ul class="skills">
-    <li class="skills__item" draggable="true" id="0">Gardening</li>
-    <li class="skills__item" draggable="true" id="1">Handiwork</li>
-    <li class="skills__item" draggable="true" id="2">Babysitting</li>
-    <li class="skills__item" draggable="true" id="3">Pet sitting</li>
-  </ul>
-
-  <form method="POST">
-    <ul class="drop-zone container"></ul>
-    <input type="submit" value="Submit" class="btn btn-primary mt-3" />
-  </form>
-</div>
-```
-
-I am using Bootstrap to style the elements in the component. The basic HTML markup including bootstrap specific class names for each skill item is as follows:
-
-```html
-<div class="container">
-  <ul class="skills container list-group list-group-horizontal flex-wrap">
-    <li
-      class="skills__item list-group-item m-2 border border-secondary rounded"
-      draggable="true"
-      id="0"
-    >
+    <!-- Draggable items pool -->
+    <li class="skills__item" draggable="true" id="0">
       Gardening
+      <input type="hidden" name="skill[]" value="0" />
+
+      <button type="button" class="remove-skill">X</button>
     </li>
-    <!-- Other skill items -->
   </ul>
 
   <form method="POST">
-    <ul
-      class="drop-zone container list-group list-group-horizontal-sm flex-wrap align-items-start align-content-start border border-secondary mt-5 vh-50"
-    ></ul>
-    <!-- Selected skill items -->
-    <input type="submit" value="Submit" class="btn btn-primary mt-3" />
+    <!-- Drop zone -->
+    <ul class="drop-zone"></ul>
+    <input type="submit" value="Submit" />
   </form>
 </div>
 ```
 
-I am adding custom css to define `cursor: move` property for all skill items and set a minimum height for the drop zone:
+For readibility, I am omitting here Bootstrap specific class names. You can refer to the Codepen mentioned in the beginning to look at the detailed skeleton.
+We have from top to bottom:
 
-```css
-.skills__item {
-  cursor: move;
-}
+- filter component,
+- skills pool (`<ul class="skills">`),
+- drop zone (`<ul class="drop-zone">`)
 
-.drop-zone {
-  min-height: 20vh;
-}
-```
+The skills pool contains items which are made draggable. The drop zone is enclosed whithin a form so that the selected skills can be submitted and registered in database (we will not deal with this step here).  
+To render a functional dragging sequence, I am using various events provided but the drag and drop API:
 
-Finally, in each skill item, I am adding two elements, one input of type `hidden` and one remove button. The input will store info about the item selected, which we will be able to send through form submission. The remove button will allow the user to remove items which are currently selected.  
-The detailed code for each skill item is as follows:
+- for skills items:
+  - dragstart,
+  - dragend,
+  - drop.
+- for drop zone:
+  - dragenter,
+  - dragleave,
+  - dragover,
+  - drop.
 
-```html
-<li
-  class="skills__item list-group-item m-2 border border-secondary rounded"
-  draggable="true"
-  id="0"
->
-  <!-- Skill_name -->
-  <input type="hidden" name="skill[]" value="1" />
-
-  <button type="button" class="remove-skill ms-2 px-1 py-0 btn btn-danger">
-    X
-  </button>
-</li>
-```
-
-I am adding additional CSS to customize skill item appearance so that the remove button is not displayed while the item is not selected:
-
-```css
-.skills .skills__item .remove-skill {
-  display: none;
-}
-
-.drop-zone .skills__item .remove-skill {
-  display: block;
-}
-```
-
-At this point, we can drag the elements on our pages but nothing else happens. To add drag and drop interactions, we will need to use the JavaScript API and its drag events.
-
-## Dragging events
-
-When dragging an element, 4 events are trigerred in the following sequence:
-
-- dragstart
-- drag
-- dragend
-- drop
-
-We are only going to use `dragstart` and `dragend` events to handle and customize the drag and drop sequence of a skill item.
-The following code will reduce item opacity when it is being dragged and set it back to normal when the user release it and the dragging ends:
-
-```js
-function handleDragStart(e) {
-  this.style.opacity = '0.4';
-}
-
-function handleDragEnd(e) {
-  this.style.opacity = '1';
-}
-
-const skillItems = document.querySelectorAll('.skills__item');
-
-skillItems.forEach((skill) => {
-  skill.addEventListener('dragstart', handleDragStart);
-  skill.addEventListener('dragend', handleDragEnd);
-});
-```
-
-Finally, we will use the `drop` event to complete the drop sequence. In the drop handler, we will prevent additional event processing for this event by calling `stopPropagation()`:
-
-```js
-function handleDrop(e) {
-  e.stopPropagation(); // stops the browser from redirecting.
-  return false;
-}
-
-skillItems.forEach((skill) => {
-  // skill.addEventListener('dragstart', handleDragStart)
-  // skill.addEventListener('dragend', handleDragEnd)
-  skill.addEventListener('drop', handleDrop);
-});
-```
-
-## Events for drop target
-
-When the user drags an item over the drop zone, the following events are triggered in sequence:
-
-- dragenter
-- dragover
-- drop or dragleave
-
-With `dragenter` and `dragleave` / `drop` events, we will add visual cues to customize the drop-zone appearance when the user drag an item over it. Specifically, we will customize the appearance of its borders:
-
-```js
-function handleDragEnter(e) {
-  const target = e.target;
-  if (target) {
-    e.preventDefault();
-    // Set the dropEffect to move
-    e.dataTransfer.dropEffect = 'move';
-  }
-
-  this.classList.remove('border-secondary');
-  this.classList.add('over');
-  this.classList.add('border-primary');
-}
-
-function handleDragLeave(e) {
-  this.classList.add('border-secondary');
-}
-
-function handleDropZone(e) {
-  this.classList.remove('border-primary');
-  this.classList.add('border-secondary');
-}
-
-dropZone.addEventListener('dragenter', handleDragEnter);
-dropZone.addEventListener('dragleave', handleDragLeave);
-dropZone.addEventListener('drop', handleDropZone);
-```
-
-There are an additional action happening in this code, we are defining the drag data, with the property `dataTransfer`, which is storing data related to the event. Then, we are setting the `dropEffect` to 'move'. This property is used to specify the feedback given to the user during the drag and drop sequence. `move` indicates that the item being dragged will be moved.
-
-In the CSS, I define additional properties to tweak further border appearance:
-
-```css
-.drop-zone.over {
-  border-style: dashed !important;
-  border-width: 5px !important;
-}
-```
-
-Then, we define an additional handler for when the drop zone is being dragged over with `dragover` event. In this handler, we need to prevent the browser's default behavior and return false.
-
-```js
-function handleDragOver(e) {
-  if (e.preventDefault) {
-    e.preventDefault();
-  }
-  return false;
-}
-
-// dropZone.addEventListener("dragenter", handleDragEnter);
-// dropZone.addEventListener("dragleave", handleDragLeave);
-dropZone.addEventListener('dragover', handleDragOver);
-// dropZone.addEventListener("drop", handleDropZone);
-```
-
-## Keeping track of dragged item
-
-Next we need to keep track of the element which is being dragged, so that we can remove it from the items list and add it to the drop zone.
-For this, we will initialize a `dragged` variable and assign to it the dragged item in the relevant handlers:
-
-```js
-// Initialize dragged element
-let dragged;
-
-function handleDragStart(e) {
-  // this.style.opacity = "0.4";
-
-  const target = e.target;
-  if (target) {
-    dragged = target;
-  }
-}
-
-// Handle item drop and removal
-function handleDropZone(e) {
-  // this.classList.remove('border-primary');
-  // this.classList.add('border-secondary');
-
-  const target = e.target;
-  if (target) {
-    e.preventDefault();
-    // Removed the element from items list
-    dragged.parentNode.removeChild(dragged);
-    // Add the moved element to the target's DOM
-    target.appendChild(dragged);
-  }
-}
-```
-
-In the handleDragStart handler, we are setting the `dragged` variable to the item which is being dragged (`target`). In the handleDropZone handler, we removing the dragged item from its parent node (`.skills`) and adding it to the drop zone (`target`).
-
-Now, we are able to select item and submit them through form submission. Our remove button is available for items selected but nothing happens when it is clicked. In this case, we would expect to be removed from drop zone and to be added back to the items pool above.
+I will not go into the details on how to listen to these events and how to implement their handlers as many resources, including those mentioned above, go through this process in great detail.
