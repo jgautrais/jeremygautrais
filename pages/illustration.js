@@ -382,9 +382,9 @@ export default function Illustration() {
     const Section = ({ children }) => {
         return <section className='mt-12 my-20'>{children}</section>;
     };
-    const H2 = ({ children }) => {
+    const H1 = ({ children }) => {
         return (
-            <h2 className='text-3xl sm:text-4xl font-bold mb-6'>{children}</h2>
+            <h1 className='text-3xl sm:text-4xl font-bold mb-6'>{children}</h1>
         );
     };
 
@@ -430,7 +430,7 @@ export default function Illustration() {
             description='Voxel and vector enthusiast, based in Lyon, FR.'
         >
             <Section>
-                <H2>Illustration</H2>
+                <H1>Illustration</H1>
                 <div className='flex justify-center mb-8'>
                     <Button onClick={handleClickAll} name='all'>
                         All
