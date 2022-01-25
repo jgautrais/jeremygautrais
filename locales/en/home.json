@@ -1,39 +1,39 @@
 {
-  "header": "<0><1>Hi</1>, I'm Jérémy</0>",
-  "sub_header": "<0>I'm a junior Web Developer, focused on <1>JavaScript</1> and <1>PHP</1> development.<2></2>I have a diverse set of skills, ranging from design to React, Node.js and Symfony.</0>",
-  "posts": "Last posts",
-  "skills": { "title": "I have experience with:", "tools": "Tools" },
-  "projects": "Projects",
-  "projectItems": [
-    {
-      "title": "Personal Website",
-      "stack": "nextjs,tailwind,i18n,mdx",
-      "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The translations are handled by <2>i18n</2> library.<1></1>The blog's content is handled with <2>MDX</2> files compiled and rendered as React components.<1></1>You will find here some of the latest projects I have been working on.</0>",
-      "github": "https://github.com/jgautrais/jeremygautrais.fr"
-    },
-    {
-      "title": "Aest game",
-      "stack": "html,sass,js",
-      "description": "<0>Aest is a game attempting to reproduce a training tool for visual assessment of crop diseases.<1></1>The project is ongoing and I am planning to add more features such as text feedbacks.<1></1>The game is build as a static website using HTML, <2>Sass</2> for CSS and JavaScript. <2>jQuery</2> library is used to ease DOM manipulations.</0>",
-      "github": "https://github.com/jgautrais/aest",
-      "live": "https://aest.vercel.app/",
-      "img": "/static/images/project_aest.png"
-    },
-    {
-      "title": "Phonebook React App",
-      "stack": "react,nodejs,mongo,sass",
-      "description": "<0>This phonebook app was created with React. Phonebook data is stored on <2>MongoDB</2>. A server set up with Node.js - <2>Express</2> framework is handling network requests. The app is styled using <2>'styled components'</2> library.</0>",
-      "github": "https://github.com/jgautrais/fso-phonebook-demo/tree/main",
-      "live": "https://shrouded-depths-13779.herokuapp.com/",
-      "img": "/static/images/project_phonebook_react_app.jpg"
-    },
-    {
-      "title": "Intro Component with sign-up form",
-      "stack": "html,css,js",
-      "description": "<0>This sign-up page was build with plain HTML and CSS. The page is responsive. Client-side form validation is implemented in JavaScript. JavaScript is also used to alert user on valid/non-valid sign-up fields upon form submission.</0>",
-      "github": "https://github.com/jgautrais/fem_intro_compo_signup",
-      "live": "https://fem-intro-compo-signup.vercel.app/",
-      "img": "/static/images/project_intro_compo_signup.jpg"
-    }
-  ]
+    "header": "<0><1>Hi</1>, I'm Jérémy</0>",
+    "sub_header": "<0>I'm a junior Web Developer, focused on <1>JavaScript</1> and <1>PHP</1> development.<2></2>I have a diverse set of skills, ranging from design to React, Node.js and Symfony.</0>",
+    "posts": "Last posts",
+    "skills": { "title": "I have experience with:", "tools": "Tools" },
+    "projects": "Projects",
+    "projectItems": [
+        {
+            "title": "Personal Website",
+            "stack": "nextjs,tailwind,i18n,mdx",
+            "description": "<0>This personal website is a project in continuous development. I try to improve my code quality and efficiency at each iteration. This porfolio is build as a React app with the framework <2>Next.js</2>.<1></1>I am using <2>Tailwind</2> CSS framework for styling. The translations are handled by <2>i18n</2> library.<1></1>The blog's content is handled with <2>MDX</2> files compiled and rendered as React components.<1></1>You will find here some of the latest projects I have been working on.</0>",
+            "github": "https://github.com/jgautrais/jeremygautrais.fr"
+        },
+        {
+            "title": "Aest game",
+            "stack": "php,symfony,js,mysql,tailwind",
+            "description": "<0>Aest is a game attempting to reproduce a training tool for visual assessment of crop diseases.<1></1>The project was build with PHP <2>Symfony</2> framework.<1></1>Users and game stats are handled server-side while the game mechanic is handled client-side with JavaScript and jQuery library.<1></1>Game stats are stored on a <2>mySQL</2> database. <2>Tailwind</2> CSS framework is used for the app styling</0>",
+            "github": "https://github.com/jgautrais/aest",
+            "live": "https://aest.fr/",
+            "img": "/static/images/project_aest.png"
+        },
+        {
+            "title": "Phonebook React App",
+            "stack": "react,nodejs,mongo,sass",
+            "description": "<0>This phonebook app was created with React. Phonebook data is stored on <2>MongoDB</2>. A server set up with Node.js - <2>Express</2> framework is handling network requests. The app is styled using <2>'styled components'</2> library.</0>",
+            "github": "https://github.com/jgautrais/fso-phonebook-demo/tree/main",
+            "live": "https://shrouded-depths-13779.herokuapp.com/",
+            "img": "/static/images/project_phonebook_react_app.jpg"
+        },
+        {
+            "title": "Intro Component with sign-up form",
+            "stack": "html,css,js",
+            "description": "<0>This sign-up page was build with plain HTML and CSS. The page is responsive. Client-side form validation is implemented in JavaScript. JavaScript is also used to alert user on valid/non-valid sign-up fields upon form submission.</0>",
+            "github": "https://github.com/jgautrais/fem_intro_compo_signup",
+            "live": "https://fem-intro-compo-signup.vercel.app/",
+            "img": "/static/images/project_intro_compo_signup.jpg"
+        }
+    ]
 }
