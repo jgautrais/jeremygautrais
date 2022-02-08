@@ -338,6 +338,10 @@ input[type='email'] {
   background-color: #505050 !important;
 }
 
+.token-line {
+  display: block;
+}
+
 .token.comment {
   color: #787878 !important;
 }
