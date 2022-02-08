@@ -15,7 +15,7 @@
             "title": "Aest game",
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>Aest is a game attempting to reproduce a training tool for visual assessment of crop diseases.<1></1>The project was build with PHP <2>Symfony</2> framework.<1></1>Users and game stats are handled server-side while the game mechanic is handled client-side with JavaScript and jQuery library.<1></1>Game stats are stored on a <2>mySQL</2> database. <2>Tailwind</2> CSS framework is used for the app styling.</0>",
-            "github": "https://github.com/jgautrais/aest_symfony",
+            "github": "https://github.com/jgautrais/aest",
             "live": "https://aest.fr/",
             "img": "/static/images/project_aest.png"
         },
