@@ -7,6 +7,14 @@ import Prism from 'prism-react-renderer/prism';
 
 require('prismjs/components/prism-php');
 
+const ImageBlog = (props) => {
+    return (
+        <div className='flex justify-center my-8'>
+            <Image {...props} />
+        </div>
+    );
+};
+
 const CustomLink = (props) => {
     const href = props.href;
     const isInternalLink =
@@ -58,7 +66,7 @@ const CodeBlock = (props) => {
 };
 
 const MDXComponents = {
-    Image,
+    Image: ImageBlog,
     a: CustomLink,
     pre: CodeBlock,
 };

@@ -328,11 +328,9 @@ input[type='email'] {
 }
 
 .token.plain,
-.token.tag,
 .token.variable,
 .token.function,
 .token.unit,
-.token.tag.class-name,
 .token.maybe-class-name,
 .token.tag.attr-name,
 .token.template-string,
@@ -369,6 +367,17 @@ input[type='email'] {
 .language-css .token.function,
 .language-scss .token.function {
     color: rgb(214, 158, 157) !important;
+}
+
+.token.boolean,
+.token.selector,
+.token.tag.script.language-javascript {
+    color: rgb(90, 193, 224) !important;
+}
+
+.token.tag,
+.token.tag.class-name {
+    color: rgb(221, 101, 195) !important;
 }
 
 code {

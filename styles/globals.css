@@ -356,21 +356,14 @@ input[type='email'] {
   color: #e05c5a !important;
 }
 
-.token.boolean,
-.token.selector {
-  color: #5ac1e0 !important;
-}
-
 .token.class-name {
   color: #5ae0c3 !important;
 }
 
 .token.plain,
-.token.tag,
 .token.variable,
 .token.function,
 .token.unit,
-.token.tag.class-name,
 .token.maybe-class-name,
 .token.tag.attr-name,
 .token.template-string,
@@ -408,6 +401,17 @@ input[type='email'] {
 .language-css .token.function,
 .language-scss .token.function {
   color: #d69e9d !important;
+}
+
+.token.boolean,
+.token.selector,
+.token.tag.script.language-javascript {
+  color: #5ac1e0 !important;
+}
+
+.token.tag,
+.token.tag.class-name {
+  color: #dd65c3 !important;
 }
 
 code {
