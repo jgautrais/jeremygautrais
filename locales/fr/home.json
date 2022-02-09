@@ -22,7 +22,7 @@
         {
             "title": "Tout court",
             "stack": "php,symfony,js,mysql,tailwind",
-            "description": "<0>'Tout court' reproduit un système simplifié de réservation de courts de tennis. Ce projet a été réalisé en 3 jours pour la fin de ma formation développeur web.<1></1>Ce projet a été conçu avec le framework PHP <2>Symfony</2>.<1></1>Les utilisateurs et les réservations sont stockées sur une base <2>mySQL</2>. Le framework CSS <2>Tailwind</2> est utilisé pour le style de l'application.</0>",
+            "description": "<0>'Tout court' reproduit un système simplifié de réservation de courts de tennis. Ce projet a été réalisé en 3 jours pour la fin de ma formation développeur web.<1></1>Ce projet a été conçu avec le framework PHP <2>Symfony</2>.<1></1>Les utilisateurs et les réservations sont stockés sur une base <2>mySQL</2>. Le framework CSS <2>Tailwind</2> a été utilisé pour le style de l'application.</0>",
             "github": "https://github.com/jgautrais/toutcourt",
             "live": "https://toutcourt.aest.fr/",
             "img": "/static/images/project_toutcourt.png"
