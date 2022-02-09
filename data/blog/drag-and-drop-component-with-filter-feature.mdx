@@ -1,9 +1,18 @@
 ---
 title: 'Drag and drop component with filter feature'
-publishedAt: '2022-02-08'
-lastUpdatedAt: '2022-02-08'
+publishedAt: '2022-02-09'
+lastUpdatedAt: '2022-02-09'
 summary: 'Learn how I built a component using the HTML5 Drag and Drop API with JavaScript, and how I implemented a filter to quickly search items.'
 ---
+
+<Image
+    alt={`Drag and drop component`}
+    src={`/static/images/drag-and-drop-component-with-filter-feature/banner.png`}
+    width={610}
+    height={494}
+    priority
+    className='rounded-lg'
+/>
 
 The HTML [Drag and Drop](https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API) API allows us to handle and customize drag-and-drop events in browsers. In this post, I will explain how I used this API to create a custom component, combined with a search filter.  
 The final code and a demo is available at the following [Codepen](https://codepen.io/jgautrais/pen/MWvPaoy). In the article, I will explain how I customized a base template and implemented a filter feature to quickly search through available items to be dragged.
@@ -64,7 +73,7 @@ To render a functional dragging sequence, I am using various events provided but
 
 I will not go into the details on how to listen to these events and how to implement their handlers as many resources, including those mentioned above, go through this process in great detail.
 
-## Implementing the skills filter
+## Implementing the skills filter functionality
 
 The filter process is handled in 3 steps:
 
@@ -72,15 +81,38 @@ The filter process is handled in 3 steps:
 -   filtering the skills pool based on that value,
 -   updating the DOM with the filtered skills to display to the user
 
-### 1. Listening to the filter input value
+However, the initial step for us is to retrieve all skills available in the component, whether or not they are currently being selected by the user.
 
-The filter is implemented through a text input, whose value is retrieved in javascript to update the skills displayed to the user. Therefore, we have to implement first an event listener, firing whenever the value of the input is changing:
+### 1. Retrieving the skills from the DOM
 
 ```js
 const skillsPool = document.querySelector('.skills');
 const skillsInitial = [].slice.call(skillsPool.children);
+```
 
-// Input filter handler
+In the snippet above, we are first retrieving all the skills elements, displayed in the pool (`<ul class="skills">`). Then we need to add to the array of inital skills (`skillsInitial`) the skills that are already selected by the user. Whenever a skill element is selected by the user, we are adding to it the `checked` attribute, so that we can identify them later in the process. Indeed, those selected skills should not be presented to the user unless the user unselect them at some point.
+
+```js
+if (dropZone.children.length > 0) {
+    const skillsSelected = [].slice.call(dropZone.children);
+
+    skillsSelected.forEach((skill) => {
+        skill.checked = true;
+        skillsInitial.push(skill);
+    });
+
+    sortSkills(skillsInitial, 'id');
+}
+```
+
+In the snippet above, we are checking if the drop-zone element contains any skill element. In that case we are retrieving the selected skills, adding them the `checked` attribute and adding those to the array. Finally, we are sorting alphabetically the skills.  
+This `skillsInitial` array will be our source of data during the whole filtering process.
+
+### 2. Listening to the filter input value
+
+The filter is implemented through a text input, whose value is retrieved in javascript to update the skills displayed to the user. Therefore, we have to implement first an event listener, firing whenever the value of the input is changing:
+
+```js
 function addFilterHandler(input, skillsInitial, skillsPool) {
     function handleChangeValue(e) {
         const target = e.target;
@@ -96,12 +128,12 @@ const filterInput = document.querySelector('#search-input');
 addFilterHandler(filterInput, skillsInitial, skillsPool);
 ```
 
-In the snippet above, we are first retrieving all the skills elements, then we are defining the handler (`handleChangeValue`), which is called whenever the `input` event is happening. This [event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) fires whenever the value of an input has been changed. Finally, we are providing this handler to the event listener set up on the input element.  
-The handler itself is calling another function (`filterSkills`), which takes as parameters the filter value (_input_), the intial set of skills (_skillsInitial_) and its parent container element (_skillsPool_).
+In the snippet above we are defining the handler (`handleChangeValue`), which is called whenever the `input` event is happening. This [event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) fires whenever the value of an input has been changed. Finally, we are providing this handler to the event listener set up on the input element.  
+The handler itself is calling another function (`filterSkills`), which takes as parameters the filter value (_input_), the intial set of skills (_skillsInitial_) and the skills container element (_skillsPool_).
 
-### 2. Filtering the skills
+### 3. Filtering the skills
 
-Once the event listener is set up, we have to filter the skills pool based on the value retrieve in the first step. The `filterSkills` function taking charge of this:
+Once the event listener is set up, we have to filter the skills pool based on the value retrieved in the first step. The `filterSkills` function is taking charge of this:
 
 ```js
 function filterSkills(input, skills, skillsContainer) {
@@ -118,4 +150,24 @@ function filterSkills(input, skills, skillsContainer) {
 }
 ```
 
-In the snippet above, we are first checking the filter value, evaluating if the input value is empty. In that case, we don't filter the values and directly go to the DOM update step, with the `updateSkills` function.
+In the snippet above, we are first checking the filter value, evaluating if it is empty. In that case, we don't filter the values and go directly to the DOM update step, with the `updateSkills` function.
+If the value is not empty, we filter the list of skills to match those that contains the string entered by the user in the input filter. The next step is to update the DOM with the skills that match the filter.
+
+### 3. Updating the DOM
+
+To update the DOM with filtered skills, we have to differentiate skills that are selected (displayed in the drop zone) from those that are not. Indeed, we do not want to present the user with skills that he already selected. To do that, we are checking the `checked` attribute of skills.
+Therefore, our update function is as below:
+
+```js
+function updateSkills(container, skills) {
+    container.innerHTML = '';
+
+    skills.forEach((skill) => {
+        if (!skill.checked) container.appendChild(skill);
+    });
+}
+```
+
+In the snippet above, we are iterating over all the filtered skills. If the skill is not already selected by the user (`checked`), we are adding the skill to the initial container (`skillsPool` variable in our script).
+
+I let you look at the final code available at the following [Codepen](https://codepen.io/jgautrais/pen/MWvPaoy). In this pen, I have refined the component with initial alphabetical sorting of skills. The pen also contains the whole code for the drag and drop feature and the Bootstrap's class markup in the HTML.
