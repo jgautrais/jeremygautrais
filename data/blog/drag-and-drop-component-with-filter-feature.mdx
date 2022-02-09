@@ -1,7 +1,7 @@
 ---
 title: 'Drag and drop component with filter feature'
-publishedAt: '2021-11-15'
-lastUpdatedAt: '2021-11-15'
+publishedAt: '2022-02-08'
+lastUpdatedAt: '2022-02-08'
 summary: 'Learn how I built a component using the HTML5 Drag and Drop API with JavaScript, and how I implemented a filter to quickly search items.'
 ---
 
@@ -12,54 +12,110 @@ The final code and a demo is available at the following [Codepen](https://codepe
 
 To build this component, I used various resources to create a skeleton of the drag and drop component, in particular:
 
-- [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/)
-- [Creating a Parking Game With the HTML Drag and Drop API](https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/)
+-   [Using the HTML5 Drag and Drop API](https://web.dev/drag-and-drop/)
+-   [Creating a Parking Game With the HTML Drag and Drop API](https://css-tricks.com/creating-a-parking-game-with-the-html-drag-and-drop-api/)
 
 The objective of this component is to select various skills. Therefore we will be manipulating skill items in this example.
 Using resources mentioned above, I ended up with the following component:
 
 ```html
 <div class="container">
-  <!-- Filter item -->
-  <label for="search-input">Search skills:</label>
-  <input type="text" value="" placeholder="skill" id="search-input" />
+    <!-- Filter item -->
+    <label for="search-input">Search skills:</label>
+    <input type="text" value="" placeholder="skill" id="search-input" />
 
-  <ul class="skills">
-    <!-- Draggable items pool -->
-    <li class="skills__item" draggable="true" id="0">
-      Gardening
-      <input type="hidden" name="skill[]" value="0" />
+    <ul class="skills">
+        <!-- Draggable items pool -->
+        <li class="skills__item" draggable="true" id="0">
+            Gardening
+            <input type="hidden" name="skill[]" value="0" />
 
-      <button type="button" class="remove-skill">X</button>
-    </li>
-  </ul>
+            <button type="button" class="remove-skill">X</button>
+        </li>
+    </ul>
 
-  <form method="POST">
-    <!-- Drop zone -->
-    <ul class="drop-zone"></ul>
-    <input type="submit" value="Submit" />
-  </form>
+    <form method="POST">
+        <!-- Drop zone -->
+        <ul class="drop-zone"></ul>
+        <input type="submit" value="Submit" />
+    </form>
 </div>
 ```
 
 For readibility, I am omitting here Bootstrap specific class names. You can refer to the Codepen mentioned in the beginning to look at the detailed skeleton.
 We have from top to bottom:
 
-- filter component,
-- skills pool (`<ul class="skills">`),
-- drop zone (`<ul class="drop-zone">`)
+-   filter component,
+-   skills pool (`<ul class="skills">`),
+-   drop zone (`<ul class="drop-zone">`)
 
 The skills pool contains items which are made draggable. The drop zone is enclosed whithin a form so that the selected skills can be submitted and registered in database (we will not deal with this step here).  
 To render a functional dragging sequence, I am using various events provided but the drag and drop API:
 
-- for skills items:
-  - dragstart,
-  - dragend,
-  - drop.
-- for drop zone:
-  - dragenter,
-  - dragleave,
-  - dragover,
-  - drop.
+-   for skills items:
+    -   dragstart,
+    -   dragend,
+    -   drop.
+-   for drop zone:
+    -   dragenter,
+    -   dragleave,
+    -   dragover,
+    -   drop.
 
 I will not go into the details on how to listen to these events and how to implement their handlers as many resources, including those mentioned above, go through this process in great detail.
+
+## Implementing the skills filter
+
+The filter process is handled in 3 steps:
+
+-   retrieving the filter value,
+-   filtering the skills pool based on that value,
+-   updating the DOM with the filtered skills to display to the user
+
+### 1. Listening to the filter input value
+
+The filter is implemented through a text input, whose value is retrieved in javascript to update the skills displayed to the user. Therefore, we have to implement first an event listener, firing whenever the value of the input is changing:
+
+```js
+const skillsPool = document.querySelector('.skills');
+const skillsInitial = [].slice.call(skillsPool.children);
+
+// Input filter handler
+function addFilterHandler(input, skillsInitial, skillsPool) {
+    function handleChangeValue(e) {
+        const target = e.target;
+
+        if (target) {
+            filterSkills(input, skillsInitial, skillsPool);
+        }
+    }
+    input.addEventListener('input', handleChangeValue);
+}
+
+const filterInput = document.querySelector('#search-input');
+addFilterHandler(filterInput, skillsInitial, skillsPool);
+```
+
+In the snippet above, we are first retrieving all the skills elements, then we are defining the handler (`handleChangeValue`), which is called whenever the `input` event is happening. This [event](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/input_event) fires whenever the value of an input has been changed. Finally, we are providing this handler to the event listener set up on the input element.  
+The handler itself is calling another function (`filterSkills`), which takes as parameters the filter value (_input_), the intial set of skills (_skillsInitial_) and its parent container element (_skillsPool_).
+
+### 2. Filtering the skills
+
+Once the event listener is set up, we have to filter the skills pool based on the value retrieve in the first step. The `filterSkills` function taking charge of this:
+
+```js
+function filterSkills(input, skills, skillsContainer) {
+    const filter = input.value.toLowerCase();
+
+    if (filter === '') {
+        updateSkills(skillsContainer, skills);
+    } else {
+        const skillsFiltered = skills.filter((skill) =>
+            skill.firstChild.nodeValue.toLowerCase().includes(filter),
+        );
+        updateSkills(skillsContainer, skillsFiltered);
+    }
+}
+```
+
+In the snippet above, we are first checking the filter value, evaluating if the input value is empty. In that case, we don't filter the values and directly go to the DOM update step, with the `updateSkills` function.
