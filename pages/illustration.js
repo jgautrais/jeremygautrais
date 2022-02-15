@@ -6,6 +6,12 @@ import { useState } from 'react';
 export default function Illustration() {
     const illustrations = [
         {
+            title: 'Glasshouse',
+            src: 'voxel-061_glasshouse.png',
+            format: '1x1',
+            style: 'voxel',
+        },
+        {
             title: 'Concert scene',
             src: 'voxel-060_concert.png',
             format: '1x1',
