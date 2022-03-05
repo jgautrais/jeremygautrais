@@ -6,6 +6,30 @@ import { useState } from 'react';
 export default function Illustration() {
     const illustrations = [
         {
+            title: 'Bavarois',
+            src: 'vector-016_flat_bavarois.png',
+            format: '3x4',
+            style: 'vector',
+        },
+        {
+            title: 'Tarte au citron meringuée',
+            src: 'vector-015_flat_tarte_citron_meringuee.png',
+            format: '3x4',
+            style: 'vector',
+        },
+        {
+            title: 'Tiramisu',
+            src: 'vector-014_flat_tiramisu.png',
+            format: '3x4',
+            style: 'vector',
+        },
+        {
+            title: 'Tarte au citron',
+            src: 'vector-013_flat_tarte_citron.png',
+            format: '3x4',
+            style: 'vector',
+        },
+        {
             title: 'House',
             src: 'voxel-062_house.png',
             format: '1x1',
