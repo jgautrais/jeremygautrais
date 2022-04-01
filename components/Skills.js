@@ -25,15 +25,16 @@ const Skills = () => {
             <div className='md:grid md:grid-cols-2' id='skills'>
                 <div className='mb-6'>
                     <H3>Front-End</H3>
-                    <PSkills>HTML5</PSkills>
                     <PSkills>CSS/Sass, Bootstrap, Tailwind</PSkills>
                     <PSkills>JavaScript, ES6, jQuery</PSkills>
                     <PSkills>React</PSkills>
+                    <PSkills>Vue.js</PSkills>
                 </div>
                 <div className='mb-6'>
                     <H3>Back-End</H3>
-                    <PSkills>PHP, Symfony, Twig</PSkills>
+                    <PSkills>PHP, Symfony</PSkills>
                     <PSkills>Nodejs, Express</PSkills>
+                    <PSkills>Strapi</PSkills>
                 </div>
 
                 <div className='mb-6'>
@@ -50,6 +51,7 @@ const Skills = () => {
 
                 <div>
                     <H3>{t('skills.tools')}</H3>
+                    <PSkills>Docker</PSkills>
                     <PSkills>git, npm, yarn, composer</PSkills>
                 </div>
             </div>
