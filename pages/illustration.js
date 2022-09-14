@@ -6,6 +6,24 @@ import { useState } from 'react';
 export default function Illustration() {
     const illustrations = [
         {
+            title: 'Cut',
+            src: 'vector-017_cut_001_blue.png',
+            format: '1x1',
+            style: 'vector',
+        },
+        {
+            title: 'Cut',
+            src: 'vector-018_cut_001_green.png',
+            format: '1x1',
+            style: 'vector',
+        },
+        {
+            title: 'Cut',
+            src: 'vector-019_cut_001_orange.png',
+            format: '1x1',
+            style: 'vector',
+        },
+        {
             title: 'Bavarois',
             src: 'vector-016_flat_bavarois.png',
             format: '3x4',
