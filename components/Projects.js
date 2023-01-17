@@ -115,7 +115,7 @@ const Projects = () => {
                             </div>
                             <div className='flex flex-col md:flex-row lg:flex-col mt-6'>
                                 {project.img ? (
-                                    <Link href={project.live} passHref>
+                                  <Link href={project.github} passHref>
                                         <a
                                             className='block mx-auto md:mx-0 lg:mx-auto h-full'
                                             target='_blank'

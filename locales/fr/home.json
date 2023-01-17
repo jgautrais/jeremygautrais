@@ -16,7 +16,6 @@
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>Aest est un jeu tentant de reproduire un outil d'entraînement pour l'observation des maladies fongiques des cultures végétales.<1></1>Ce projet a été conçu avec le framework PHP <2>Symfony</2>.<1></1>La gestion des utilisateurs et des statistiques de jeu se fait côté back-end. La mécanique de jeu est gérée côté client avec JavaScript et le librairie jQuery.<1></1>Les données de jeu sont stockées sur une base <2>mySQL</2>. Le framework CSS <2>Tailwind</2> est utilisé pour le style de l'application.</0>",
             "github": "https://github.com/jgautrais/aest",
-            "live": "https://aest.fr/",
             "img": "/static/images/project_aest.png"
         },
         {
@@ -24,7 +23,6 @@
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>'Tout court' reproduit un système simplifié de réservation de courts de tennis. Ce projet a été réalisé en 3 jours pour la fin de ma formation développeur web.<1></1>Ce projet a été conçu avec le framework PHP <2>Symfony</2>.<1></1>Les utilisateurs et les réservations sont stockés sur une base <2>mySQL</2>. Le framework CSS <2>Tailwind</2> a été utilisé pour le style de l'application.</0>",
             "github": "https://github.com/jgautrais/toutcourt",
-            "live": "https://toutcourt.aest.fr/",
             "img": "/static/images/project_toutcourt.png"
         },
         {
@@ -32,7 +30,6 @@
             "stack": "react,nodejs,mongo,sass",
             "description": "<0>Cette application a été conçue avec React. Les données de l'annuaire sont stockées sur <2>MongoDB</2>. Un serveur installé avec Node.js et le framework <2>Express</2> gère les requêtes réseaux. L'application utilise la librairie <2>'styled components'</2> pour la création du css.</0>",
             "github": "https://github.com/jgautrais/fso-phonebook-demo/tree/main",
-            "live": "https://shrouded-depths-13779.herokuapp.com/",
             "img": "/static/images/project_phonebook_react_app.jpg"
         }
     ]

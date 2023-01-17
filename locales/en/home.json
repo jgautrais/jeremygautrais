@@ -16,7 +16,6 @@
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>Aest is a game attempting to reproduce a training tool for visual assessment of crop diseases.<1></1>The project is built with PHP <2>Symfony</2> framework.<1></1>Users and game stats are handled server-side while the game mechanic is handled client-side with JavaScript and jQuery library.<1></1>Game stats are stored on a <2>mySQL</2> database. <2>Tailwind</2> CSS framework is used for the app styling.</0>",
             "github": "https://github.com/jgautrais/aest",
-            "live": "https://aest.fr/",
             "img": "/static/images/project_aest.png"
         },
         {
@@ -24,7 +23,6 @@
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>'Tout court' repoduces a simple tennis courts booking system. This project was built in 3 days for the end of my web developer training.<1></1>The project was build with PHP <2>Symfony</2> framework.<1></1>Users and bookings are stored on a <2>mySQL</2> database. <2>Tailwind</2> CSS framework was used for the app styling.</0>",
             "github": "https://github.com/jgautrais/toutcourt",
-            "live": "https://toutcourt.aest.fr/",
             "img": "/static/images/project_toutcourt.png"
         },
         {
@@ -32,7 +30,6 @@
             "stack": "react,nodejs,mongo,sass",
             "description": "<0>This phonebook app was created with React. Phonebook data is stored on <2>MongoDB</2>. A server set up with Node.js - <2>Express</2> framework is handling network requests. The app is styled using <2>'styled components'</2> library.</0>",
             "github": "https://github.com/jgautrais/fso-phonebook-demo/tree/main",
-            "live": "https://shrouded-depths-13779.herokuapp.com/",
             "img": "/static/images/project_phonebook_react_app.jpg"
         }
     ]
