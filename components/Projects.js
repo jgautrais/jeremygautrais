@@ -115,53 +115,29 @@ const Projects = () => {
                             </div>
                             <div className='flex flex-col md:flex-row lg:flex-col mt-6'>
                                 {project.img ? (
-                                  project.live ? (
-                                    <Link href={project.live} passHref>
-                                      <a
-                                        className='block mx-auto md:mx-0 lg:mx-auto h-full'
-                                        target='_blank'
-                                        rel='noreferrer'
-                                      >
-                                        <div
-                                          className='project__img relative mx-auto md:mx-0 lg:mx-auto flex-grow md:mr-8 lg:mr-0'
-                                          style={{
-                                            width: '16rem',
-                                            maxWidth: '55vw',
-                                            height: '13rem',
-                                          }}
+                                  <Link href={project.github} passHref>
+                                        <a
+                                            className='block mx-auto md:mx-0 lg:mx-auto h-full'
+                                            target='_blank'
+                                            rel='noreferrer'
                                         >
-                                          <Image
-                                            alt='Project Illustration'
-                                            src={project.img}
-                                            layout='fill'
-                                            objectFit='cover'
-                                          />
-                                        </div>
-                                      </a>
+                                            <div
+                                                className='project__img relative mx-auto md:mx-0 lg:mx-auto flex-grow md:mr-8 lg:mr-0'
+                                                style={{
+                                                    width: '16rem',
+                                                    maxWidth: '55vw',
+                                                    height: '13rem',
+                                                }}
+                                            >
+                                                <Image
+                                                    alt='Project Illustration'
+                                                    src={project.img}
+                                                    layout='fill'
+                                                    objectFit='cover'
+                                                />
+                                            </div>
+                                        </a>
                                     </Link>
-                                    ) : (
-                                      <a
-                                        className='block mx-auto md:mx-0 lg:mx-auto h-full'
-                                        target='_blank'
-                                        rel='noreferrer'
-                                      >
-                                        <div
-                                          className='project__img relative mx-auto md:mx-0 lg:mx-auto flex-grow md:mr-8 lg:mr-0'
-                                          style={{
-                                            width: '16rem',
-                                            maxWidth: '55vw',
-                                            height: '13rem',
-                                          }}
-                                        >
-                                          <Image
-                                            alt='Project Illustration'
-                                            src={project.img}
-                                            layout='fill'
-                                            objectFit='cover'
-                                          />
-                                        </div>
-                                      </a>
-                                    )
                                 ) : (
                                     ''
                                 )}
