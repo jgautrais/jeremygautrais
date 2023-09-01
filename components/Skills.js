@@ -32,15 +32,15 @@ const Skills = () => {
                 </div>
                 <div className='mb-6'>
                     <H3>Back-End</H3>
-                    <PSkills>PHP, Symfony</PSkills>
-                    <PSkills>Nodejs, Express</PSkills>
+                    <PSkills>PHP, Symfony, Laravel</PSkills>
+                    <PSkills>NodeJS, Express</PSkills>
                     <PSkills>Strapi</PSkills>
                 </div>
 
                 <div className='mb-6'>
                     <H3>Databases</H3>
-                    <PSkills>mySQL</PSkills>
-                    <PSkills>Doctrine ORM</PSkills>
+                    <PSkills>mySQL, PostgreSQL</PSkills>
+                    <PSkills>ORMs Doctrine, Eloquent, Sequelize</PSkills>
                 </div>
 
                 <div className='mb-6'>
@@ -52,6 +52,7 @@ const Skills = () => {
                 <div>
                     <H3>{t('skills.tools')}</H3>
                     <PSkills>Docker</PSkills>
+                    <PSkills>Gitlab CI/CD</PSkills>
                     <PSkills>git, npm, yarn, composer</PSkills>
                 </div>
             </div>
