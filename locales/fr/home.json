@@ -1,6 +1,6 @@
 {
     "header": "<0><1>Bonjour</1>, Je suis Jérémy</0>",
-    "sub_header": "<0>Je suis un Développeur Web junior, je suis particulièrement attiré par la programmation <1>JavaScript</1> et <1>PHP</1>.<2></2>J'ai diverses compétences, allant du front-end au back-end, incluant React, Vue.js, Symfony et la création d'API REST.</0>",
+    "sub_header": "<0>Je suis Développeur Web FullStack <1>PHP</1>/<1>JavaScript</1>.<2></2>J'ai diverses compétences, allant du front-end au back-end, incluant React, Laravel, Symfony et la création d'API REST.</0>",
     "posts": "Derniers posts",
     "skills": { "title": "J'ai de l'expérience avec:", "tools": "Outils" },
     "projects": "Projets",

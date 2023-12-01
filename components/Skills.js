@@ -33,7 +33,7 @@ const Skills = () => {
                 <div className='mb-6'>
                     <H3>Back-End</H3>
                     <PSkills>PHP, Symfony, Laravel</PSkills>
-                    <PSkills>NodeJS, Express</PSkills>
+                    <PSkills>NodeJS</PSkills>
                     <PSkills>Strapi</PSkills>
                 </div>
 
@@ -53,6 +53,7 @@ const Skills = () => {
                     <H3>{t('skills.tools')}</H3>
                     <PSkills>Docker</PSkills>
                     <PSkills>Gitlab CI/CD</PSkills>
+                    <PSkills>Vite/Webpack</PSkills>
                     <PSkills>git, npm, yarn, composer</PSkills>
                 </div>
             </div>
