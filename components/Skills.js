@@ -26,7 +26,7 @@ const Skills = () => {
                 <div className='mb-6'>
                     <H3>Front-End</H3>
                     <PSkills>CSS/Sass, Bootstrap, Tailwind</PSkills>
-                    <PSkills>JavaScript, ES6, jQuery</PSkills>
+                    <PSkills>JavaScript, ES6</PSkills>
                     <PSkills>React</PSkills>
                     <PSkills>Vue.js</PSkills>
                 </div>

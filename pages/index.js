@@ -60,24 +60,34 @@ export default function Home({ posts }) {
           : 'Développeur web PHP et JavaScript, et artiste voxel, basé à Lyon.'
       }
     >
-      <LanguageSwitcher />
+      <LanguageSwitcher/>
 
       <Section hero={true}>
         <Trans
           i18nKey='home:header'
           components={[
-            <H1 key='0' />,
-            <span key='1' className='text-blue-500' />,
+            <H1 key='0'/>,
+            <span key='1' className='text-blue-500'/>,
           ]}
         />
         <Trans
           i18nKey='home:sub_header'
           components={[
-            <PHero key='0' />,
-            <b key='1' className='text-black dark:text-white' />,
-            <br key='2' />,
+            <PHero key='0'/>,
+            <b key='1' className='text-black dark:text-white'/>,
+            <br key='2'/>,
           ]}
         />
+      </Section>
+
+      <Section>
+        <H2>{t('skills.title')}</H2>
+        <Skills/>
+      </Section>
+      <span id='projects'></span>
+      <Section>
+        <H2>{t('projects')}</H2>
+        <Projects/>
       </Section>
 
       <section>
@@ -88,16 +98,6 @@ export default function Home({ posts }) {
           ))}
         </div>
       </section>
-
-      <Section>
-        <H2>{t('skills.title')}</H2>
-        <Skills />
-      </Section>
-      <span id='projects'></span>
-      <Section>
-        <H2>{t('projects')}</H2>
-        <Projects />
-      </Section>
     </Container>
   );
 }
@@ -105,5 +105,5 @@ export default function Home({ posts }) {
 export async function getStaticProps() {
   const posts = await getAllFilesFrontMatter('blog');
 
-  return { props: { posts } };
+  return {props: {posts}};
 }

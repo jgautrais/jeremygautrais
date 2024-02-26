@@ -64,6 +64,12 @@ const Projects = () => {
             case 'php':
                 name = 'php';
                 break;
+            case 'laravel':
+                name = 'laravel';
+                break;
+            case 'docker':
+                name = 'docker';
+                break;
         }
 
         return (
@@ -97,7 +103,7 @@ const Projects = () => {
                         <article
                             key={i}
                             className={`project__container border-2 ${
-                                project.live
+                                project.img
                                     ? 'border-gray-100 dark:border-gray-500'
                                     : 'border-gray-300 dark:border-gray-100'
                             } dark:border-opacity-25 py-4 md:py-6 px-6 mb-12 rounded-xl max-w-sm md:max-w-2xl lg:max-w-sm mx-auto`}
@@ -115,7 +121,7 @@ const Projects = () => {
                             </div>
                             <div className='flex flex-col md:flex-row lg:flex-col mt-6'>
                                 {project.img ? (
-                                  <Link href={project.github} passHref>
+                                  <Link href={project.live ?? project.github} passHref>
                                         <a
                                             className='block mx-auto md:mx-0 lg:mx-auto h-full'
                                             target='_blank'
