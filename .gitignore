@@ -15,6 +15,7 @@
 /.vscode/
 /examples
 /.idea/
+**/.DS_Store
 
 # local env files
 .env

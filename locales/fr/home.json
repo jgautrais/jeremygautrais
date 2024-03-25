@@ -24,6 +24,7 @@
             "stack": "php,symfony,js,mysql,tailwind",
             "description": "<0>Aest est un jeu tentant de reproduire un outil d'entraînement pour l'observation des maladies fongiques des cultures végétales.<1></1>Ce projet a été conçu avec le framework PHP <2>Symfony</2>.<1></1>La gestion des utilisateurs et des statistiques de jeu se fait côté back-end. La mécanique de jeu est gérée côté client avec JavaScript et le librairie jQuery.<1></1>Les données de jeu sont stockées sur une base <2>mySQL</2>. Le framework CSS <2>Tailwind</2> est utilisé pour le style de l'application.</0>",
             "github": "https://github.com/jgautrais/aest",
+            "live": "https://aest.jeremygautrais.fr/",
             "img": "/static/images/project_aest.png"
         },
         {
