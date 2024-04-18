@@ -1,5 +1,5 @@
 {
-  "test": {
-    "hello": "Hello"
+  "hero": {
+    "job": "Full-Stack Web Developer"
   }
 }
