@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
 import NavBar from "@/app/[lang]/components/nav-bar";
-import {Locale} from "../../../../i18n-config";
+import { ReactNode } from 'react';
+import { Locale } from "../../../../i18n-config";
 
 type Props = {
   lang: Locale
