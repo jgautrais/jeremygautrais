@@ -1,5 +1,19 @@
 {
+  "commons": {
+    "year": "year",
+    "years": "years"
+  },
   "hero": {
-    "job": "Full-Stack Web Developer"
+    "job": "Full-Stack Web Developer",
+    "location": "Lyon, FR",
+    "description": "I'm a developer specialized in creating web applications, you will find in this portfolio my skills and personal projects."
+  },
+  "skills": {
+    "title": "Technologies",
+    "experience": "Experience",
+    "react": "React",
+    "laravel": "Laravel",
+    "nodejs": "Node.js",
+    "db": "Databases"
   }
 }

@@ -1,5 +1,19 @@
 {
+  "commons": {
+    "year": "an",
+    "years": "ans"
+  },
   "hero": {
-    "job": "Développeur web Full-Stack"
+    "job": "Développeur web Full-Stack",
+    "location": "Lyon",
+    "description": "Développeur spécialisé en création d'applications web, je vous présente sur ce portfolio mes compétences et projets personnels."
+  },
+  "skills": {
+    "title": "Technologies",
+    "experience": "Expérience",
+    "react": "React",
+    "laravel": "Laravel",
+    "nodejs": "Node.js",
+    "db": "Bases de données"
   }
 }
