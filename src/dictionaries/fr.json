@@ -1,7 +1,8 @@
 {
   "commons": {
     "year": "an",
-    "years": "ans"
+    "years": "ans",
+    "ecosystem": "Écosystème"
   },
   "hero": {
     "job": "Développeur web Full-Stack",
@@ -14,6 +15,7 @@
     "react": "React",
     "laravel": "Laravel",
     "nodejs": "Node.js",
-    "db": "Bases de données"
+    "db": "Bases de données",
+    "devops": "DevOps"
   }
 }

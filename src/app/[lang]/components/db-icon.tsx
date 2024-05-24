@@ -6,7 +6,7 @@ export default function DBIcon({className}: Props) {
 
   return (
     <svg
-      className={`h-8 w-8 fill-sky-600 ${className}`}
+      className={className ?? 'h-8 w-8 fill-sky-600'}
       viewBox="0 0 448 512"
       xmlns="http://www.w3.org/2000/svg"
     >

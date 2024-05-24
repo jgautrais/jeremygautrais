@@ -33,7 +33,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
-      <body className={`${inter.variable} ${josefinSans.variable} flex flex-col mx-auto text-center h-screen font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${josefinSans.variable} flex flex-col items-center mx-auto text-center h-screen font-sans`}>{children}</body>
     </html>
   );
 }
