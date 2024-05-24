@@ -7,7 +7,8 @@
   "hero": {
     "job": "Développeur web Full-Stack",
     "location": "Lyon",
-    "description": "Développeur spécialisé en création d'applications web, je vous présente sur ce portfolio mes compétences et projets personnels."
+    "description": "Développeur spécialisé en création d'applications web, je vous présente sur ce portfolio mes compétences et projets personnels.",
+    "resumeDownload": "Télécharger mon CV"
   },
   "skills": {
     "title": "Technologies",

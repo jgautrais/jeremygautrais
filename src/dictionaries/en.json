@@ -7,7 +7,8 @@
   "hero": {
     "job": "Full-Stack Web Developer",
     "location": "Lyon, FR",
-    "description": "I'm a developer specialized in creating web applications, you will find in this portfolio my skills and personal projects."
+    "description": "I'm a developer specialized in creating web applications, you will find in this portfolio my skills and personal projects.",
+    "resumeDownload": "Download my resume"
   },
   "skills": {
     "title": "Technologies",
