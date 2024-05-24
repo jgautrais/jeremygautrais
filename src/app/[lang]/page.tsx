@@ -34,7 +34,7 @@ export default async function Home({
             href={`cv/CV_Jeremy_Gautrais${lang.toUpperCase()}.pdf`}
             target='_blank'
             rel='noreferrer'
-            className="inline-block self-start text-sm md:text-base mt-3 md:mt-5 text-white hover:text-teal-50 bg-zinc-700 shadow-zinc-700/50 py-1.5 md:py-2 px-4 md:px-5 rounded-full hover:bg-teal-500 shadow-lg hover:shadow-md hover:shadow-teal-500/50 transition-all ease-in-out"
+            className="inline-block self-start text-sm md:text-base mt-4 md:mt-5 text-white hover:text-teal-50 bg-zinc-700 shadow-zinc-700/50 py-1.5 md:py-2 px-4 md:px-5 rounded-full hover:bg-teal-500 shadow-lg hover:shadow-md hover:shadow-teal-500/50 transition-all ease-in-out"
           >
             {dictionary['hero'].resumeDownload}
           </a>
@@ -45,6 +45,9 @@ export default async function Home({
         <div className="mt-20">
           <Subtitle title={dictionary['skills'].title}/>
           <Skills lang={lang}/>
+        </div>
+        <div className="mt-24">
+          <Subtitle title={dictionary['projects'].title}/>
         </div>
       </div>
     </PageTemplate>

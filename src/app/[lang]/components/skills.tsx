@@ -277,7 +277,7 @@ const SkillSectionTitle = ({title, className}: SkillSectionTitleProps) => {
 
   return (
     <div className="flex items-baseline mt-4">
-      <p className="font-hero text-4xl md=text-5xl ps-2 me-1 text-teal-500">_</p>
+      <p className="font-hero text-2xl md=text-3xl ps-2 me-1 text-teal-500">_</p>
       <h2 className={`font-hero font-light text-2xl md=text-3xl uppercase ${className}`}>{title}</h2>
     </div>
   )
@@ -295,12 +295,12 @@ export default async function Skills({lang}: SkillsProps) {
         {LANGUAGE.map((language, index) => <LanguageItem key={`language-${index}`} language={language} lang={lang}/>)}
       </div>
       <SkillSectionTitle title="Frameworks"/>
-      <h4 className="uppercase font-light text-lg ms-7 mt-3 mb-2 border-b-2 border-zinc-100 leading-5 inline-flex">Back</h4>
+      <h4 className="font-light text-lg ms-7 mt-3 mb-2 text-zinc-500 leading-3 inline-flex">Back</h4>
       <div className="mt-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-2">
         {BACK_FRAMEWORKS.map((framework, index) => <SkillItem key={`framework-${index}`} skill={framework}
                                                               lang={lang}/>)}
       </div>
-      <h4 className="uppercase font-light text-lg ms-7 mt-3 mb-2 border-b-2 border-zinc-100 leading-5 inline-flex">Front</h4>
+      <h4 className="font-light text-lg ms-7 mt-3 mb-2 text-zinc-500 leading-3 inline-flex">Front</h4>
       <div className="mt-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-12">
         {FRONT_FRAMEWORKS.map((framework, index) => <SkillItem key={`framework-${index}`} skill={framework}
                                                                lang={lang}/>)}

@@ -25,5 +25,8 @@
     "php": "PHP",
     "js": "JavaScript",
     "ts": "TypeScript"
+  },
+  "projects": {
+    "title": "Projets"
   }
 }
