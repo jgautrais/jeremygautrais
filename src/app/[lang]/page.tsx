@@ -25,7 +25,7 @@ export default async function Home({
             <h1 className="font-hero text-4xl md:text-7xl font-bold text-start pt-1.5 md:pt-3">Jérémy Gautrais</h1>
           </div>
           <h2 className="text-teal-500 text-xl md:text-4xl text-start">{dictionary['hero'].job}</h2>
-          <div className="mt-8 flex">
+          <div className="mt-8 md:mt-10 flex">
             <ExternalLink icon="linkedin" text="LinkedIn" link="https://www.linkedin.com/in/jgautrais/"
                           className="me-4"/>
             <ExternalLink icon="github" text="Github" link="https://github.com/jgautrais"/>
@@ -34,7 +34,7 @@ export default async function Home({
             href={`cv/CV_Jeremy_Gautrais${lang.toUpperCase()}.pdf`}
             target='_blank'
             rel='noreferrer'
-            className="inline-block self-start mt-5 text-white hover:text-teal-50 bg-zinc-700 shadow-zinc-700/50 py-1.5 px-4 rounded-full hover:bg-teal-500 shadow-lg hover:shadow-md hover:shadow-teal-500/50 transition-all ease-in-out"
+            className="inline-block self-start text-sm md:text-base mt-3 md:mt-5 text-white hover:text-teal-50 bg-zinc-700 shadow-zinc-700/50 py-1.5 md:py-2 px-4 md:px-5 rounded-full hover:bg-teal-500 shadow-lg hover:shadow-md hover:shadow-teal-500/50 transition-all ease-in-out"
           >
             {dictionary['hero'].resumeDownload}
           </a>
