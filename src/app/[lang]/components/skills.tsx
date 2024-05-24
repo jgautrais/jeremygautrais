@@ -5,7 +5,17 @@ import JSIcon from "@/app/[lang]/components/js-icon";
 import PHPIcon from "@/app/[lang]/components/php-icon";
 import DBIcon from "@/app/[lang]/components/db-icon";
 
-type Skill = 'nodejs' | 'react' | 'laravel' | 'db' | 'devops'
+const LANGUAGE = ['js', 'ts', 'php'] as const
+const BACK_FRAMEWORKS = ['nodejs', 'laravel', 'symfony'] as const
+const FRONT_FRAMEWORKS = ['react', 'vue'] as const
+const OTHERS = ['db', 'devops'] as const
+
+type Language = typeof LANGUAGE[number]
+type BackFramework = typeof BACK_FRAMEWORKS[number]
+type FrontFramework = typeof FRONT_FRAMEWORKS[number]
+type Framework = BackFramework | FrontFramework
+type Other = typeof OTHERS[number]
+type Skill = Framework | Other
 
 type Props = {
   lang: Locale
@@ -23,15 +33,38 @@ interface SkillDescription {
     src: string;
     alt: string;
   }>,
-  experience: number;
+  experience?: number;
   ecosystem: Array<Lib>;
-  language?: string;
+  language?: 'js' | 'php';
 }
 
-const LANGUAGES: Record<string, any> = {
+type LanguageDescription =  Pick<SkillDescription, "icons">
+
+const LANGUAGES_ICONS: Record<string, any> = {
   js: JSIcon,
   php: PHPIcon,
   db: DBIcon
+}
+
+const LANGUAGES: Record<Language, LanguageDescription> = {
+  php: {
+    icons: [{
+      src: "/images/php.svg",
+      alt: "PHP Logo"
+    }],
+  },
+  js: {
+    icons: [{
+      src: "/images/js.svg",
+      alt: "JavaScript Logo"
+    }],
+  },
+  ts: {
+    icons: [{
+      src: "/images/ts.svg",
+      alt: "TypeScript Logo"
+    }],
+  },
 }
 
 const SKILLS: Record<Skill, SkillDescription> = {
@@ -49,6 +82,10 @@ const SKILLS: Record<Skill, SkillDescription> = {
       {
         lib: 'Sequelize',
         href: 'https://sequelize.org/'
+      },
+      {
+        lib: 'Strapi',
+        href: 'https://strapi.io/'
       }
     ],
     language: "js"
@@ -61,8 +98,8 @@ const SKILLS: Record<Skill, SkillDescription> = {
     experience: 2,
     ecosystem: [
       {
-        lib: 'TanStack Query',
-        href: 'https://tanstack.com/query/latest'
+        lib: 'Next.js',
+        href: 'https://nextjs.org/'
       },
       {
         lib: 'Material UI',
@@ -71,6 +108,10 @@ const SKILLS: Record<Skill, SkillDescription> = {
       {
         lib: 'Plotly',
         href: 'https://plotly.com/graphing-libraries/'
+      },
+      {
+        lib: 'TanStack Query',
+        href: 'https://tanstack.com/query/latest'
       }
     ],
     language: "js"
@@ -98,7 +139,6 @@ const SKILLS: Record<Skill, SkillDescription> = {
       src: "/images/postgresql.svg",
       alt: "PostgreSQL Logo"
     }],
-    experience: 2,
     ecosystem: [
       {
         lib: 'MySQL',
@@ -109,7 +149,6 @@ const SKILLS: Record<Skill, SkillDescription> = {
         href: 'https://www.postgresql.org/'
       }
     ],
-    language: undefined
   },
   devops: {
     icons: [{
@@ -120,7 +159,6 @@ const SKILLS: Record<Skill, SkillDescription> = {
         src: "/images/gitlab.svg",
         alt: "Gitlab Logo"
       }],
-    experience: 2,
     ecosystem: [
       {
         lib: 'Docker',
@@ -131,7 +169,38 @@ const SKILLS: Record<Skill, SkillDescription> = {
         href: 'https://about.gitlab.com/'
       }
     ],
-    language: undefined
+  },
+  symfony: {
+    icons: [{
+      src: "/images/symfony.svg",
+      alt: "Docker Logo"
+    }],
+    experience: 1,
+    ecosystem: [
+      {
+        lib: 'API Platform',
+        href: 'https://api-platform.com/'
+      },
+      {
+        lib: 'Twig',
+        href: 'https://twig.symfony.com/'
+      }
+    ],
+    language: 'php'
+  },
+  vue: {
+    icons: [{
+      src: "/images/vue.svg",
+      alt: "Docker Logo"
+    }],
+    experience: 1,
+    ecosystem: [
+      {
+        lib: 'Nuxt',
+        href: 'https://nuxt.com/'
+      },
+    ],
+    language: 'js'
   },
 }
 
@@ -140,30 +209,33 @@ const SkillItem = async ({lang, skill, className}: Props) => {
 
   const icons = SKILLS[skill].icons
   const skillItem = SKILLS[skill]
-  const LanguageIcon = skillItem.language ? LANGUAGES[skillItem.language] : undefined
+  const LanguageIcon = skillItem.language ? LANGUAGES_ICONS[skillItem.language] : undefined
 
   return (
     <div
-      className={`text-center border border-gray-100 rounded-lg px-3 sm:px-5 py-2 sm:py-3 bg-gray-50 relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
-      {skillItem.language && <LanguageIcon className="fill-gray-400 absolute w-6 h-6 right-3 sm:right-5"/>}
-      <div className="flex justify-center items-center">
+      className={`text-center border border-gray-100 rounded-lg bg-white relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
+      {skillItem.language && <LanguageIcon className="fill-gray-400 absolute w-6 h-6 right-3 top-3 sm:right-5"/>}
+      <div className="pt-3 bg-gray-50 px-3 sm:px-5 py-1 flex justify-center items-center">
         {icons.map((icon, index) => <Image key={`skill-icon-${skill}-${index}`} src={icon.src} alt={icon.alt} width='0'
-                                           height="0" className="block mx-1 h-10 w-auto"/>)}
+                                           height="0" className="block mx-1 h-10 w-auto grayscale group-hover:grayscale-0 transition-all ease-in-out"/>)}
       </div>
-      <p className="mt-1 font-bold text-lg">{dictionary['skills'][skill]}</p>
-      <div className="text-start text-sm flex border-t mt-2 pt-2">
-        <p className="font-bold">{`${dictionary['skills'].experience}:`}</p>
-        <p
-          className="ms-1">{`${skillItem.experience} ${dictionary['commons'][skillItem.experience <= 1 ? 'year' : 'years']}`}</p>
+      <p className="px-3 bg-gray-50 sm:px-5 pt-1 font-bold text-lg">{dictionary['skills'][skill]}</p>
+      <div className={`bg-gray-50 px-3 sm:px-5 flex items-baseline justify-center pt-1 pb-3 border-b`}>
+        {skillItem.experience && (
+          <>
+            <p className="text-xs">{`${dictionary['skills'].experience}:`}</p>
+            <p className="text-sm font-bold ms-1">{`${skillItem.experience} ${dictionary['commons'][skillItem.experience <= 1 ? 'year' : 'years']}`}</p>
+          </>
+        )}
       </div>
-      <div className="text-start text-xs flex flex-wrap mt-1 pt-2">
+      <div className={`px-3 sm:px-5 py-2 sm:py-3 text-start text-xs flex flex-wrap bg-white`} >
         {skillItem.ecosystem.map((item, index) => (
           <a
             key={`lib-${skill}-${index}`}
             href={item.href}
             rel='noopener noreferrer'
             target='_blank'
-            className='block me-2 mb-1 py-0.5 px-2 rounded-full border bg-gray-100 border-gray-200 hover:border hover:border-gray-400 hover:bg-gray-200 transition-all ease-in-out'
+            className='block me-2 mb-1.5 py-0.5 px-2 rounded-full border bg-gray-50 border-gray-100 hover:border hover:border-gray-300 hover:bg-gray-100 transition-all ease-in-out'
           >
             {item.lib}
           </a>
@@ -173,13 +245,78 @@ const SkillItem = async ({lang, skill, className}: Props) => {
   )
 }
 
+type LanguageItemProps = {
+  lang: Locale
+  language: Language;
+  className?: string;
+}
+
+const LanguageItem = async ({lang, language, className}: LanguageItemProps) => {
+  const dictionary = await getDictionary(lang);
+
+  const icons = LANGUAGES[language].icons
+
+  return (
+    <div
+      className={`text-center border border-gray-100 rounded-lg px-3 sm:px-5 py-2 sm:py-3 bg-gray-50 relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
+      <div className="px-3 sm:px-5 py-2 sm:py-3 flex justify-center items-center">
+        {icons.map((icon, index) => <Image key={`language-icon-${language}-${index}`} src={icon.src} alt={icon.alt} width='0'
+                                           height="0" className="block h-10 w-auto grayscale group-hover:grayscale-0 transition-all ease-in-out" />)}
+      </div>
+      <p className="mt-1 font-bold text-lg">{dictionary['skills'][language]}</p>
+    </div>
+  )
+}
+
+type SkillSectionTitleProps = {
+  title: string;
+  className?: string;
+}
+
+const SkillSectionTitle = ({title, className}: SkillSectionTitleProps) => {
+
+  return (
+    <div className="flex items-baseline mt-4">
+      <p className="font-hero text-4xl md=text-5xl ps-2 me-1 text-teal-500">_</p>
+      <h2 className={`font-hero text-2xl md=text-3xl uppercase ${className}`}>{title}</h2>
+    </div>
+  )
+}
+
 type SkillsProps = Pick<Props, "lang">
 
-export default function Skills({lang}: SkillsProps) {
-  const skills = Object.keys(SKILLS) as Array<Skill>
+export default async function Skills({lang}: SkillsProps) {
+  const dictionary = await getDictionary(lang);
+
   return (
-    <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
-      {skills.map((skill, index) => <SkillItem key={`skill-${index}`} skill={skill} lang={lang}/>)}
+    <div>
+      <div className="group">
+        <SkillSectionTitle title={dictionary['skills'].languages}/>
+        <div className="mt-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-10">
+          {LANGUAGE.map((language, index) => <LanguageItem key={`language-${index}`} language={language} lang={lang}/>)}
+        </div>
+      </div>
+      <SkillSectionTitle title="Frameworks"/>
+      <div className="group">
+        <h4 className="uppercase text-lg ms-7 mt-3 mb-2 border-b-2 border-zinc-100 leading-5 inline-flex">Back</h4>
+        <div className="mt-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-2">
+          {BACK_FRAMEWORKS.map((framework, index) => <SkillItem key={`framework-${index}`} skill={framework}
+                                                                lang={lang}/>)}
+        </div>
+      </div>
+      <div className="group">
+        <h4 className="uppercase text-lg ms-7 mt-3 mb-2 border-b-2 border-zinc-100 leading-5 inline-flex">Front</h4>
+        <div className="mt-1 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6 mb-10">
+          {FRONT_FRAMEWORKS.map((framework, index) => <SkillItem key={`framework-${index}`} skill={framework}
+                                                                 lang={lang}/>)}
+        </div>
+      </div>
+      <div className="group">
+        <SkillSectionTitle title={dictionary['skills'].others}/>
+        <div className="mt-2 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2 sm:gap-4 lg:gap-6">
+          {OTHERS.map((other, index) => <SkillItem key={`other-${index}`} skill={other} lang={lang}/>)}
+        </div>
+      </div>
     </div>
   )
 }

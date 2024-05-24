@@ -12,10 +12,17 @@
   "skills": {
     "title": "Technologies",
     "experience": "Expérience",
+    "languages": "Langages",
+    "others": "Autres",
     "react": "React",
     "laravel": "Laravel",
     "nodejs": "Node.js",
     "db": "Bases de données",
-    "devops": "DevOps"
+    "devops": "DevOps",
+    "symfony": "Symfony",
+    "vue": "Vue",
+    "php": "PHP",
+    "js": "JavaScript",
+    "ts": "TypeScript"
   }
 }

@@ -6,7 +6,7 @@ export default function PHPIcon({className}: Props) {
 
   return (
     <svg
-      className={className ?? 'h-8 w-8 fill-sky-600'}
+      className={className ?? 'h-8 w-8 fill-zinc-600'}
       viewBox="0 0 640 512"
       xmlns="http://www.w3.org/2000/svg"
     >

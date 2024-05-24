@@ -21,7 +21,7 @@ export default async function Home({
             <Image src="/images/profile.jpg" alt={lang === 'fr' ? 'Photo de profil' : 'Profile picture'} width='200' height="200" className="block border border-gray-100 shadow-lg shadow-gray-400/50 mx-1 h-8 md:h-20 w-8 md:w-20 object-cover rounded-full me-2 md:me-4" quality={100} />
             <h1 className="font-hero text-4xl md:text-7xl font-bold text-start pt-1.5 md:pt-3">Jérémy Gautrais</h1>
           </div>
-          <h2 className="text-sky-500 text-xl md:text-4xl text-start">{dictionary['hero'].job}</h2>
+          <h2 className="text-teal-500 text-xl md:text-4xl text-start">{dictionary['hero'].job}</h2>
           <div className="mt-6 flex">
             <ExternalLink icon="linkedin" text="LinkedIn" link="https://www.linkedin.com/in/jgautrais/" className="me-4" />
             <ExternalLink icon="github" text="Github" link="https://github.com/jgautrais" />
