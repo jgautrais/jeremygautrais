@@ -163,7 +163,7 @@ const SkillItem = async ({lang, skill, className}: Props) => {
             href={item.href}
             rel='noopener noreferrer'
             target='_blank'
-            className='block me-2 mb-1 py-0.5 px-2 rounded-full bg-gray-200 border border-transparent hover:bg-gray-300 hover:border hover:border-gray-400 transition-all ease-in-out'
+            className='block me-2 mb-1 py-0.5 px-2 rounded-full border bg-gray-100 border-gray-200 hover:border hover:border-gray-400 hover:bg-gray-200 transition-all ease-in-out'
           >
             {item.lib}
           </a>
