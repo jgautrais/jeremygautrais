@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getDictionary } from "@/get-dictionary";
 import { Locale } from "../../../i18n-config";
 import PageTemplate from "@/app/[lang]/components/page-template";
@@ -16,14 +17,17 @@ export default async function Home({
     <PageTemplate lang={lang}>
       <div className="flex flex-col text-start">
         <div className="ps-4 md:ps-8">
-          <h1 className="font-hero text-4xl md:text-7xl font-bold text-start mb-3 md:mb-6">Jérémy Gautrais</h1>
+          <div className="flex items-center mb-3 md:mb-6">
+            <Image src="/images/profile.jpg" alt={lang === 'fr' ? 'Photo de profil' : 'Profile picture'} width='200' height="200" className="block border border-gray-100 shadow-lg shadow-gray-400/50 mx-1 h-10 md:h-20 w-10 md:w-20 object-cover rounded-full me-2 md:me-4" quality={100} />
+            <h1 className="font-hero text-4xl md:text-7xl font-bold text-start pt-2 md:pt-3">Jérémy Gautrais</h1>
+          </div>
           <h2 className="text-sky-500 text-xl md:text-4xl text-start">{dictionary['hero'].job}</h2>
           <div className="mt-6 flex">
             <ExternalLink icon="linkedin" text="LinkedIn" link="https://www.linkedin.com/in/jgautrais/" className="me-4" />
             <ExternalLink icon="github" text="Github" link="https://github.com/jgautrais" />
           </div>
         </div>
-        <div className="mt-12">
+        <div className="mt-16">
           <p className="max-w-xl ps-4 md:ps-8 text-start text-lg">{dictionary['hero'].description}</p>
         </div>
         <div className="mt-20">
