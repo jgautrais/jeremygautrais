@@ -27,6 +27,10 @@
     "ts": "TypeScript"
   },
   "projects": {
-    "title": "Projets"
+    "title": "Projets",
+    "browseCode": "Voir le code",
+    "lesmots": "\"Les Mots\" est un jeu dont le but est de trouver tous les mots\n          possibles avec 9 lettres tirées aléatoirement.",
+    "aest": "\"Aest\" est un jeu tentant de reproduire un outil d'entraînement pour l'observation des maladies fongiques des cultures végétales.",
+    "toutcourt": "\"Tout court\" reproduit un système simplifié de réservation de courts de tennis. Ce projet a été réalisé en 3 jours pour la fin de ma formation développeur web."
   }
 }

@@ -5,6 +5,8 @@ import PageTemplate from "@/app/[lang]/components/page-template";
 import ExternalLink from "@/app/[lang]/components/external-link";
 import Subtitle from "@/app/[lang]/components/subtitle";
 import Skills from "@/app/[lang]/components/skills";
+import CodeIcon from "@/app/[lang]/components/code-icon";
+import Projects from "@/app/[lang]/components/projects";
 
 export default async function Home({
    params: { lang },
@@ -48,8 +50,9 @@ export default async function Home({
         </div>
         <div className="mt-24">
           <Subtitle title={dictionary['projects'].title}/>
+          <Projects lang={lang} />
         </div>
       </div>
     </PageTemplate>
-  );
+);
 }

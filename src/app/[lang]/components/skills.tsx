@@ -258,12 +258,12 @@ const LanguageItem = async ({lang, language, className}: LanguageItemProps) => {
 
   return (
     <div
-      className={`text-center border border-gray-100 rounded-lg relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
-      <div className="bg-gray-50 px-3 sm:px-5 py-2 sm:py-3 flex justify-center items-center">
+      className={`bg-white text-center border border-gray-100 rounded-lg relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
+      <div className="px-3 mt-2 sm:mt-3 sm:px-5 py-1 sm:py-2 flex justify-center items-center">
         {icons.map((icon, index) => <Image key={`language-icon-${language}-${index}`} src={icon.src} alt={icon.alt} width='0'
-                                           height="0" className="block h-10 w-auto transition-all ease-in-out" />)}
+                                           height="0" className="block h-10 w-auto" />)}
       </div>
-      <p className="border-t pb-2 sm:pb-3 pt-2 font-semibold text-xl bg-white">{dictionary['skills'][language]}</p>
+      <p className="pb-2 sm:pb-3 pt-1 text-xl">{dictionary['skills'][language]}</p>
     </div>
   )
 }
