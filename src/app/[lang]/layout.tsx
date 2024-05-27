@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from '@vercel/analytics/react';
 import { Inter, Josefin_Sans } from "next/font/google";
 import "./globals.css";
 import { i18n, type Locale } from "../../../i18n-config";
@@ -33,7 +34,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang={params.lang}>
-      <body className={`${inter.variable} ${josefinSans.variable} flex flex-col items-center mx-auto text-center h-screen font-sans`}>{children}</body>
+      <body className={`${inter.variable} ${josefinSans.variable} flex flex-col items-center mx-auto text-center h-screen font-sans`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
