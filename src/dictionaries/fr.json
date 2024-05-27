@@ -1,0 +1,37 @@
+{
+  "commons": {
+    "year": "an",
+    "years": "ans",
+    "ecosystem": "Écosystème"
+  },
+  "hero": {
+    "job": "Développeur web Full-Stack",
+    "location": "Lyon",
+    "description": "Développeur spécialisé en création d'applications web, je vous présente sur ce portfolio mes compétences et projets personnels.",
+    "resumeDownload": "Télécharger mon CV"
+  },
+  "skills": {
+    "title": "Technologies",
+    "experience": "Expérience",
+    "languages": "Langages",
+    "others": "Autres",
+    "react": "React",
+    "laravel": "Laravel",
+    "nodejs": "Node.js",
+    "db": "Bases de données",
+    "devops": "DevOps",
+    "symfony": "Symfony",
+    "vue": "Vue",
+    "php": "PHP",
+    "js": "JavaScript",
+    "ts": "TypeScript"
+  },
+  "projects": {
+    "title": "Projets",
+    "browseCode": "Voir le code",
+    "browseProject": "Voir le projet",
+    "lesmots": "\"Les Mots\" est un jeu dont le but est de trouver tous les mots possibles avec 9 lettres tirées aléatoirement. Ce projet a été conçu avec Laravel et React.",
+    "aest": "\"Aest\" est un jeu tentant de reproduire un outil d'entraînement pour l'observation des maladies fongiques des cultures végétales. Ce projet a été conçu avec Symfony.",
+    "toutcourt": "\"Tout court\" reproduit un système simplifié de réservation de courts de tennis. Ce projet a été réalisé en 3 jours pour la fin de ma formation développeur web. Ce projet a été conçu avec Symfony."
+  }
+}
