@@ -63,7 +63,7 @@ const ProjectCard = async ({ lang, project}: ProjectCardProps) => {
         <div className="flex justify-between items-center mt-5">
           {projectItem.preview && (
             <a
-              href={projectItem.code}
+              href={projectItem.preview}
               rel="noopener noreferrer"
               target="_blank"
               className="flex w-min me-auto items-center bg-teal-50 py-0.5 px-2 border border-teal-200 text-teal-900 rounded-full group-hover/div:bg-teal-900 group-hover/div:border-teal-800 group-hover/div:text-white transition-all ease-in-out"
