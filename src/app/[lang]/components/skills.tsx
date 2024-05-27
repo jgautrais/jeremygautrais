@@ -80,6 +80,10 @@ const SKILLS: Record<Skill, SkillDescription> = {
         href: 'https://expressjs.com/'
       },
       {
+        lib: 'Zod',
+        href: 'https://zod.dev/'
+      },
+      {
         lib: 'Sequelize',
         href: 'https://sequelize.org/'
       },
@@ -102,12 +106,16 @@ const SKILLS: Record<Skill, SkillDescription> = {
         href: 'https://nextjs.org/'
       },
       {
-        lib: 'Material UI',
-        href: 'https://mui.com/material-ui/'
-      },
-      {
         lib: 'Plotly',
         href: 'https://plotly.com/graphing-libraries/'
+      },
+      {
+        lib: 'Tailwind CSS',
+        href: 'https://tailwindcss.com/'
+      },
+      {
+        lib: 'Material UI',
+        href: 'https://mui.com/material-ui/'
       },
       {
         lib: 'TanStack Query',

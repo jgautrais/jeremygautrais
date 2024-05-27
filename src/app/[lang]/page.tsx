@@ -42,7 +42,7 @@ export default async function Home({
           </a>
         </div>
         <div className="mt-16">
-          <p className="max-w-xl ps-4 md:ps-8 text-start text-lg">{dictionary['hero'].description}</p>
+          <p className="max-w-xl ps-4 md:ps-8 text-start text-md sm:text-lg">{dictionary['hero'].description}</p>
         </div>
         <div className="mt-20">
           <Subtitle title={dictionary['skills'].title}/>

@@ -29,8 +29,9 @@
   "projects": {
     "title": "Projects",
     "browseCode": "Browse code",
-    "lesmots": "\"Les Mots\" is a game where the goal is to find all the french words with 9 given random letters.",
-    "aest": "\"Aest\" is a game attempting to reproduce a training tool for visual assessment of crop diseases.",
-    "toutcourt": "\"Tout court\" repoduces a simple tennis courts booking system. This project was built in 3 days for the end of my web developer training."
+    "browseProject": "Go to project",
+    "lesmots": "\"Les Mots\" is a game where the goal is to find all the french words with 9 given random letters. This project was built with Laravel and React.",
+    "aest": "\"Aest\" is a game attempting to reproduce a training tool for visual assessment of crop diseases. This project was built with Symfony.",
+    "toutcourt": "\"Tout court\" repoduces a simple tennis courts booking system. This project was built in 3 days for the end of my web developer training. This project was built with Symfony."
   }
 }
