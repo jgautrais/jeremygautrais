@@ -222,7 +222,7 @@ const SkillItem = async ({lang, skill, className}: Props) => {
   return (
     <div
       className={`group text-center border border-gray-100 rounded-lg bg-white relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
-      {skillItem.language && <LanguageIcon className="fill-gray-400 absolute w-6 h-6 right-3 top-3 sm:right-4"/>}
+      {skillItem.language && <LanguageIcon className="fill-gray-300 absolute w-6 h-6 right-3 top-3 sm:right-4"/>}
       <div className="pt-3 bg-gray-50 px-3 sm:px-5 py-1 flex justify-center items-center">
         {icons.map((icon, index) => <Image key={`skill-icon-${skill}-${index}`} src={icon.src} alt={icon.alt} width='0'
                                            height="0" className="block mx-1 h-10 w-auto contrast-75 group-hover:contrast-100 transition-all ease-in-out"/>)}
@@ -231,19 +231,19 @@ const SkillItem = async ({lang, skill, className}: Props) => {
       <div className={`bg-gray-50 px-3 sm:px-5 flex items-baseline justify-center pt-1 pb-3 border-b`}>
         {skillItem.experience && (
           <>
-            <p className="text-xs">{`${dictionary['skills'].experience}:`}</p>
+            <p className="text-xs text-gray-600">{`${dictionary['skills'].experience}:`}</p>
             <p className="text-sm font-bold ms-1">{`${skillItem.experience} ${dictionary['commons'][skillItem.experience <= 1 ? 'year' : 'years']}`}</p>
           </>
         )}
       </div>
-      <div className={`px-3 sm:px-5 py-2 sm:py-3 text-start text-xs flex flex-wrap bg-white`} >
+      <div className={`px-3 sm:px-5 pt-4 pb-3 text-start text-xs flex flex-wrap bg-white`} >
         {skillItem.ecosystem.map((item, index) => (
           <a
             key={`lib-${skill}-${index}`}
             href={item.href}
             rel='noopener noreferrer'
             target='_blank'
-            className='block me-2 mb-1.5 py-0.5 px-2 rounded-full border bg-gray-50 border-gray-100 hover:border hover:border-gray-300 hover:bg-gray-100 transition-all ease-in-out'
+            className='block me-2 mb-1.5 py-0.5 px-2 text-gray-500 rounded-full border bg-gray-50 border-gray-100 hover:border hover:border-gray-300 hover:text-gray-600 hover:bg-gray-100 transition-all ease-in-out'
           >
             {item.lib}
           </a>

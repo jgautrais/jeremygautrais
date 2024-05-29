@@ -47,28 +47,28 @@ const ProjectCard = async ({ lang, project}: ProjectCardProps) => {
 
   return (
     <div
-      className="group/div border border-gray-100 rounded-lg relative shadow-lg shadow-gray-300/50 hover:shadow-sm transition-all ease-in-out">
+      className="group/div flex flex-col border border-gray-100 rounded-lg relative shadow-lg shadow-gray-300/50 hover:shadow-sm transition-all ease-in-out">
       <a href={projectItem.preview ?? undefined} rel="noopener noreferrer" target={projectItem.preview ? '_blank' : ''}
          className="block relative group/image overflow-hidden">
         <Image src={projectItem.image} alt="Les Mots" width='600'
                height="600"
-               className="block w-full max-h-60 object-cover object-top opacity-70 group-hover/div:opacity-100 group-hover/div:scale-110 duration-500 transition-all ease-in-out"/>
+               className="block w-full max-h-60 object-cover object-top opacity-70 group-hover/div:opacity-100 group-hover/div:scale-105 duration-500 transition-all ease-in-out"/>
       </a>
-      <div className="pt-3 pb-4 md:pb-5 px-3 sm:px-5 border-t">
+      <div className="flex flex-col pt-3 pb-4 md:pb-5 px-3 sm:px-5 border-t flex-grow">
         <a href={projectItem.preview ?? undefined} rel="noopener noreferrer" target="_blank">
           <h3
             className="font-hero text-xl md:text-2xl font-bold text-teal-900">{projectItem.name}</h3>
         </a>
-        <p className="mt-2 text-xs md:text-sm">{dictionary['projects'][project]}</p>
-        <div className="flex justify-between items-center mt-5">
+        <p className="mt-2 text-xs md:text-sm flex-grow">{dictionary['projects'][project]}</p>
+        <div className="flex justify-between items-center mt-6">
           {projectItem.preview && (
             <a
               href={projectItem.preview}
               rel="noopener noreferrer"
               target="_blank"
-              className="flex w-min me-auto items-center bg-teal-50 py-0.5 px-2 border border-teal-200 text-teal-900 rounded-full group-hover/div:bg-teal-900 group-hover/div:border-teal-800 group-hover/div:text-white transition-all ease-in-out"
+              className="flex w-min me-auto items-center bg-teal-50 py-1 px-2 border border-teal-200 text-teal-900 rounded-full group-hover/div:bg-teal-200 hover:border-teal-400 transition-all ease-in-out"
             >
-              <ProjectIcon className="w-4 h-4 group-hover/div:text-white"/>
+              <ProjectIcon className="w-4 h-4"/>
               <p className="ms-1 text-xs">{dictionary['projects'].browseProject}</p>
             </a>
           )}
@@ -77,7 +77,7 @@ const ProjectCard = async ({ lang, project}: ProjectCardProps) => {
             href={projectItem.code}
             rel="noopener noreferrer"
             target="_blank"
-            className="flex w-min ms-auto items-center bg-gray-100 py-0.5 px-2 border rounded-full hover:bg-gray-200 hover:border-gray-300"
+            className="flex w-min ms-auto items-center bg-gray-100 py-1 px-2 border rounded-full hover:bg-gray-200 hover:border-gray-300 transition-all ease-in-out"
           >
             <CodeIcon className="w-4 h-4 group/div-hover:text-white"/>
             <p className="ms-1 text-xs">{dictionary['projects'].browseCode}</p>
