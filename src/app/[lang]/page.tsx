@@ -44,11 +44,11 @@ export default async function Home({
         <div className="mt-16">
           <p className="max-w-xl ps-4 md:ps-8 text-start text-md sm:text-lg">{dictionary['hero'].description}</p>
         </div>
-        <div className="mt-20">
+        <div className="mt-24">
           <Subtitle title={dictionary['skills'].title}/>
           <Skills lang={lang}/>
         </div>
-        <div className="mt-24">
+        <div className="mt-28">
           <Subtitle title={dictionary['projects'].title}/>
           <Projects lang={lang} />
         </div>
