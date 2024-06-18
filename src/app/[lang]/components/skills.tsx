@@ -221,7 +221,7 @@ const SkillItem = async ({lang, skill, className}: Props) => {
 
   return (
     <div
-      className={`group text-center border border-gray-100 rounded-lg bg-white relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className}`}>
+      className={`group text-center border border-gray-100 rounded-lg bg-white relative shadow-lg shadow-gray-300/50 hover:shadow-md transition-all ease-in-out ${className} overflow-hidden`}>
       {skillItem.language && <LanguageIcon className="fill-gray-300 absolute w-6 h-6 right-3 top-3 sm:right-4"/>}
       <div className="pt-3 bg-gray-50 px-3 sm:px-5 py-1 flex justify-center items-center">
         {icons.map((icon, index) => <Image key={`skill-icon-${skill}-${index}`} src={icon.src} alt={icon.alt} width='0'
