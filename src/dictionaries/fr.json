@@ -24,7 +24,8 @@
     "vue": "Vue",
     "php": "PHP",
     "js": "JavaScript",
-    "ts": "TypeScript"
+    "ts": "TypeScript",
+    "aws": "AWS"
   },
   "projects": {
     "title": "Projets",

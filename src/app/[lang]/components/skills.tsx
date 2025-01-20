@@ -8,7 +8,7 @@ import DBIcon from "@/app/[lang]/components/db-icon";
 const LANGUAGE = ['js', 'ts', 'php'] as const
 const BACK_FRAMEWORKS = ['nodejs', 'laravel', 'symfony'] as const
 const FRONT_FRAMEWORKS = ['react', 'vue'] as const
-const OTHERS = ['db', 'devops'] as const
+const OTHERS = ['db', 'devops', 'aws'] as const
 
 type Language = typeof LANGUAGE[number]
 type BackFramework = typeof BACK_FRAMEWORKS[number]
@@ -73,7 +73,7 @@ const SKILLS: Record<Skill, SkillDescription> = {
       src: "/images/node-js.svg",
       alt: "Node.js Logo"
     }],
-    experience: 2,
+    experience: 3,
     ecosystem: [
       {
         lib: 'Express',
@@ -99,7 +99,7 @@ const SKILLS: Record<Skill, SkillDescription> = {
       src: "/images/react.svg",
       alt: "React Logo"
     }],
-    experience: 2,
+    experience: 3,
     ecosystem: [
       {
         lib: 'Next.js',
@@ -201,7 +201,7 @@ const SKILLS: Record<Skill, SkillDescription> = {
       src: "/images/vue.svg",
       alt: "Docker Logo"
     }],
-    experience: 1,
+    experience: 2,
     ecosystem: [
       {
         lib: 'Nuxt',
@@ -209,6 +209,30 @@ const SKILLS: Record<Skill, SkillDescription> = {
       },
     ],
     language: 'js'
+  },
+  aws: {
+    icons: [{
+      src: "/images/aws.svg",
+      alt: "AWS Logo"
+    }],
+    ecosystem: [
+      {
+        lib: 'Lambda',
+        href: 'https://aws.amazon.com/lambda/'
+      },
+      {
+        lib: 'DynamoDB',
+        href: 'https://aws.amazon.com/dynamodb/'
+      },
+      {
+        lib: 'S3',
+        href: 'https://aws.amazon.com/s3/'
+      },
+      {
+        lib: 'CloudWatch',
+        href: 'https://aws.amazon.com/cloudwatch/'
+      }
+    ],
   },
 }
 
