@@ -1,36 +1,94 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# jeremygautrais.fr
+
+Personal portfolio website built with [Astro](https://astro.build/) and deployed using Docker.
+
+## Tech Stack
+
+- **Framework**: Astro 5 (static site generation)
+- **Styling**: Tailwind CSS
+- **Language**: TypeScript
+- **Containerization**: Docker with multi-stage builds
+- **Production Server**: Nginx
+- **Reverse Proxy**: Traefik
+
+## Project Structure
+
+```
+.
+├── app/                    # Astro application
+│   ├── src/                # Source files
+│   ├── Dockerfile          # Multi-stage Docker build
+│   ├── astro.config.mjs    # Astro configuration
+│   └── package.json
+├── containers/             # Docker Compose configurations
+│   ├── app.yml             # Base app service
+│   ├── orchestrator.yml    # Traefik orchestrator
+│   ├── local/              # Local development overrides
+│   └── production/         # Production overrides
+└── docker-compose.yml      # Main compose file
+```
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Docker and Docker Compose
+- Node.js 22+ (for local development without Docker)
+
+### Local Development with Docker
+
+1. Create a `.env` file with required variables:
+   ```bash
+   PORTFOLIO_PATH=./
+   ENV=local
+   DOMAIN=localhost
+   ```
+
+2. Start the development server:
+   ```bash
+   docker compose up
+   ```
+
+3. Open [http://portfolio.localhost](http://portfolio.localhost) in your browser.
+
+The app runs with hot reload enabled - changes to source files will automatically refresh.
+
+### Local Development without Docker
 
 ```bash
+cd app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:4321](http://localhost:4321) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Inside the `app/` directory:
 
-## Learn More
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build static site for production |
+| `npm run preview` | Preview production build locally |
 
-To learn more about Next.js, take a look at the following resources:
+## Internationalization
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site supports multiple languages:
+- French (default): `/fr`
+- English: `/en`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Docker Build Targets
 
-## Deploy on Vercel
+The Dockerfile supports multiple build targets:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **local**: Development server with hot reload (port 4321)
+- **release**: Production build served via Nginx (port 80)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Production Deployment
+
+Production uses:
+- Pre-built Docker image from registry
+- Nginx to serve static files
+- Traefik as reverse proxy with automatic SSL via Cloudflare
