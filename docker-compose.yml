@@ -1,0 +1,8 @@
+include:
+  - path:
+      - ${PORTFOLIO_PATH}containers/app.yml
+      - ${PORTFOLIO_PATH}containers/orchestrator.yml
+      - ${PORTFOLIO_PATH}containers/${ENV}/app.yml
+      - ${PORTFOLIO_PATH}containers/${ENV}/orchestrator.yml
+    env_file:
+      - ${PORTFOLIO_PATH}.env

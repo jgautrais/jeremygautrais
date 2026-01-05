@@ -1,0 +1,8 @@
+services:
+  portfolio_orchestrator:
+    container_name: portfolio_orchestrator
+    image: traefik:v3.2
+    profiles:
+      - local
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
