@@ -1,0 +1,108 @@
+---
+import type { Locale, Dictionary } from "@/i18n/dictionaries";
+import CodeIcon from "./icons/CodeIcon.astro";
+import ProjectIcon from "./icons/ProjectIcon.astro";
+
+interface Props {
+    lang: Locale;
+    dictionary: Dictionary;
+}
+
+const { lang, dictionary } = Astro.props;
+
+const PROJECTS = ["lesmots", "aest", "toutcourt"] as const;
+
+type Project = (typeof PROJECTS)[number];
+
+interface ProjectDescription {
+    name: string;
+    image: string;
+    preview?: string;
+    code: string;
+}
+
+const PROJECTS_DATA: Record<Project, ProjectDescription> = {
+    lesmots: {
+        name: "Les Mots",
+        image: "/images/project_lesmots.png",
+        preview: "https://lesmots.jeremygautrais.fr/",
+        code: "https://github.com/jgautrais/lesmots",
+    },
+    aest: {
+        name: "Aest",
+        image: "/images/project_aest.png",
+        preview: "https://aest.jeremygautrais.fr/",
+        code: "https://github.com/jgautrais/aest",
+    },
+    toutcourt: {
+        name: "Tout court",
+        image: "/images/project_toutcourt.png",
+        preview: undefined,
+        code: "https://github.com/jgautrais/toutcourt",
+    },
+};
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-14 md:gap-10 lg:gap-12 my-4">
+    {
+        PROJECTS.map((project) => {
+            const projectItem = PROJECTS_DATA[project];
+            return (
+                <div class="group/div flex flex-col border border-gray-100 rounded-lg relative shadow-lg shadow-gray-300/50 hover:shadow-sm transition-all ease-in-out">
+                    <a
+                        href={projectItem.preview}
+                        rel="noopener noreferrer"
+                        target={projectItem.preview ? "_blank" : undefined}
+                        class="block relative group/image overflow-hidden"
+                    >
+                        <img
+                            src={projectItem.image}
+                            alt={projectItem.name}
+                            class="block w-full max-h-60 object-cover object-top opacity-70 group-hover/div:opacity-100 group-hover/div:scale-105 duration-500 transition-all ease-in-out"
+                        />
+                    </a>
+                    <div class="flex flex-col pt-3 pb-4 md:pb-5 px-3 sm:px-5 border-t flex-grow">
+                        <a
+                            href={projectItem.preview}
+                            rel="noopener noreferrer"
+                            target="_blank"
+                        >
+                            <h3 class="font-hero text-xl md:text-2xl font-bold text-teal-900">
+                                {projectItem.name}
+                            </h3>
+                        </a>
+                        <p class="mt-2 text-xs md:text-sm flex-grow">
+                            {dictionary.projects[project]}
+                        </p>
+                        <div class="flex justify-between items-center mt-6">
+                            {projectItem.preview && (
+                                <a
+                                    href={projectItem.preview}
+                                    rel="noopener noreferrer"
+                                    target="_blank"
+                                    class="flex w-min me-auto items-center whitespace-nowrap bg-teal-50 py-1 px-2 border border-teal-200 text-teal-900 rounded-full group-hover/div:bg-teal-200 hover:border-teal-400 transition-all ease-in-out"
+                                >
+                                    <ProjectIcon class="w-4 h-4" />
+                                    <p class="ms-1 text-xs">
+                                        {dictionary.projects.browseProject}
+                                    </p>
+                                </a>
+                            )}
+                            <a
+                                href={projectItem.code}
+                                rel="noopener noreferrer"
+                                target="_blank"
+                                class="flex w-min ms-auto items-center whitespace-nowrap bg-gray-100 py-1 px-2 border rounded-full hover:bg-gray-200 hover:border-gray-300 transition-all ease-in-out"
+                            >
+                                <CodeIcon class="w-4 h-4 group/div-hover:text-white" />
+                                <p class="ms-1 text-xs">
+                                    {dictionary.projects.browseCode}
+                                </p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        })
+    }
+</div>
