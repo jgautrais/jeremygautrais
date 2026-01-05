@@ -1,0 +1,7 @@
+services:
+  portfolio_app:
+    image: ${REGISTRY_ADDRESS}portfolio-app:main
+    restart: always
+    labels:
+      - traefik.http.routers.portfolio_app.entrypoints=websecure
+      - traefik.http.routers.portfolio_app.tls.certresolver=cloudflare
