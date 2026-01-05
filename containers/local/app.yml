@@ -1,0 +1,12 @@
+services:
+  portfolio_app:
+    build:
+      target: local
+    volumes:
+      - ../app:/app
+      - /app/node_modules
+    ports:
+      - "4321:4321"
+    labels:
+      - traefik.http.routers.portfolio_app.entrypoints=web
+      - traefik.http.services.portfolio_app.loadbalancer.server.port=4321

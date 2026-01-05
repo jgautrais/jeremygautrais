@@ -1,0 +1,2 @@
+# Production uses external master orchestrator
+services: {}

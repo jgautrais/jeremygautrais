@@ -1,0 +1,39 @@
+---
+import GithubIcon from "./icons/GithubIcon.astro";
+import LinkedinIcon from "./icons/LinkedinIcon.astro";
+
+interface Props {
+    icon: "github" | "linkedin";
+    text: string;
+    link: string;
+    class?: string;
+}
+
+const { icon, text, link, class: className } = Astro.props;
+---
+
+<a
+    href={link}
+    rel="noopener noreferrer"
+    target="_blank"
+    class:list={[
+        "group flex items-center bg-zinc-700 shadow-zinc-700/50 py-1.5 md:py-2 px-4 md:px-5 rounded-full hover:bg-teal-500 shadow-lg hover:shadow-md hover:shadow-teal-500/50 transition-all ease-in-out",
+        className,
+    ]}
+>
+    {
+        icon === "github" && (
+            <GithubIcon class="w-4 md:w-6 h-4 md:h-6 fill-white group-hover:fill-teal-50 transition-all ease-in-out" />
+        )
+    }
+    {
+        icon === "linkedin" && (
+            <LinkedinIcon class="w-4 md:w-6 h-4 md:h-6 fill-white group-hover:fill-teal-50 transition-all ease-in-out" />
+        )
+    }
+    <p
+        class="ms-1 text-sm md:text-base text-white group-hover:text-teal-50 transition-all ease-in-out"
+    >
+        {text}
+    </p>
+</a>
