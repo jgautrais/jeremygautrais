@@ -1,9 +1,6 @@
 services:
   portfolio_app:
     container_name: portfolio_app
-    build:
-      context: ../app
-      dockerfile: Dockerfile
     labels:
       - traefik.enable=true
       - traefik.http.routers.portfolio_app.rule=Host(`${DOMAIN}`)
