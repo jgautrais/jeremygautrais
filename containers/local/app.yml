@@ -1,6 +1,8 @@
 services:
   portfolio_app:
     build:
+      context: ../app
+      dockerfile: Dockerfile
       target: local
     volumes:
       - ../app:/app
