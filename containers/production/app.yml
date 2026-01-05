@@ -1,6 +1,6 @@
 services:
   portfolio_app:
-    image: ${REGISTRY_ADDRESS}portfolio-app:main
+    image: ${REGISTRY_ADDRESS}jeremygautrais-app:main
     restart: always
     labels:
       - traefik.http.routers.portfolio_app.entrypoints=websecure
