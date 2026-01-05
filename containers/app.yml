@@ -3,5 +3,5 @@ services:
     container_name: portfolio_app
     labels:
       - traefik.enable=true
-      - traefik.http.routers.portfolio_app.rule=Host(`${DOMAIN}`)
+      - traefik.http.routers.portfolio_app.rule=Host(`${DOMAIN}`) || Host(`www.${DOMAIN}`)
       - traefik.http.services.portfolio_app.loadbalancer.server.port=80
