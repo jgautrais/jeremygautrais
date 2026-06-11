@@ -20,12 +20,7 @@ Personal portfolio website built with [Astro](https://astro.build/) and deployed
 │   ├── Dockerfile          # Multi-stage Docker build
 │   ├── astro.config.mjs    # Astro configuration
 │   └── package.json
-├── containers/             # Docker Compose configurations
-│   ├── app.yml             # Base app service
-│   ├── orchestrator.yml    # Traefik orchestrator
-│   ├── local/              # Local development overrides
-│   └── production/         # Production overrides
-└── docker-compose.yml      # Main compose file
+├── compose.yml             # Local development stack
 ```
 
 ## Getting Started
@@ -37,21 +32,18 @@ Personal portfolio website built with [Astro](https://astro.build/) and deployed
 
 ### Local Development with Docker
 
-1. Create a `.env` file with required variables:
-   ```bash
-   PORTFOLIO_PATH=./
-   ENV=local
-   DOMAIN=localhost
-   ```
+1. Start the development stack:
 
-2. Start the development server:
    ```bash
    docker compose up
    ```
 
-3. Open [http://portfolio.localhost](http://portfolio.localhost) in your browser.
+2. Open [http://jeremygautrais.localhost](http://jeremygautrais.localhost) in your browser.
+   The Traefik dashboard is at [http://localhost:8080](http://localhost:8080).
 
-The app runs with hot reload enabled - changes to source files will automatically refresh.
+The app runs with hot reload enabled — changes to files under `app/` refresh
+automatically. To use a different host, set `DOMAIN` in a `.env` file (see
+`.env.example`).
 
 ### Local Development without Docker
 
@@ -67,15 +59,16 @@ Open [http://localhost:4321](http://localhost:4321) in your browser.
 
 Inside the `app/` directory:
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server |
-| `npm run build` | Build static site for production |
+| Command           | Description                      |
+| ----------------- | -------------------------------- |
+| `npm run dev`     | Start development server         |
+| `npm run build`   | Build static site for production |
 | `npm run preview` | Preview production build locally |
 
 ## Internationalization
 
 The site supports multiple languages:
+
 - French (default): `/fr`
 - English: `/en`
 
@@ -85,10 +78,3 @@ The Dockerfile supports multiple build targets:
 
 - **local**: Development server with hot reload (port 4321)
 - **release**: Production build served via Nginx (port 80)
-
-## Production Deployment
-
-Production uses:
-- Pre-built Docker image from registry
-- Nginx to serve static files
-- Traefik as reverse proxy with automatic SSL via Cloudflare

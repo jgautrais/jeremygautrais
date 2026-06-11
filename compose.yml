@@ -1,0 +1,38 @@
+# Local development stack: reverse proxy + Astro dev server (hot reload).
+# App: http://${DOMAIN:-jeremygautrais.localhost}
+# Traefik dashboard: http://localhost:8080
+#
+# The source is bind-mounted into the dev container, so editing a file under
+# app/ triggers Astro's hot reload — just save and the browser updates.
+services:
+  traefik:
+    image: traefik:v3
+    container_name: portfolio_traefik
+    command:
+      - --api.insecure=true
+      - --providers.docker=true
+      - --providers.docker.exposedbydefault=false
+      - --entrypoints.web.address=:80
+      - --global.sendanonymoususage=false
+    ports:
+      - "80:80"
+      - "8080:8080"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+
+  portfolio_app:
+    build:
+      context: ./app
+      dockerfile: Dockerfile
+      target: local
+    container_name: portfolio_app
+    restart: unless-stopped
+    # Hot reload: source shadows the image content; node_modules stays baked in.
+    volumes:
+      - ./app:/app
+      - /app/node_modules
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.portfolio_app.rule=Host(`${DOMAIN:-jeremygautrais.localhost}`)
+      - traefik.http.routers.portfolio_app.entrypoints=web
+      - traefik.http.services.portfolio_app.loadbalancer.server.port=4321
