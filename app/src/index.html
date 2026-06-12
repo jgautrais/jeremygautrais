@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jérémy Gautrais — Web developer & design enthusiast</title>
+    <meta
+      name="description"
+      content="Jérémy Gautrais is a web developer and design enthusiast based in Lyon, France. Selected web projects and a gallery of voxel & vector illustrations."
+    />
+    <link rel="canonical" href="https://jeremygautrais.fr/" />
+    <meta name="theme-color" content="#faf9f6" />
+
+    <!-- Open Graph / Twitter -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Jérémy Gautrais — Web developer & design enthusiast" />
+    <meta property="og:description" content="Selected web projects and a gallery of voxel & vector illustrations." />
+    <meta property="og:url" content="https://jeremygautrais.fr/" />
+    <meta property="og:image" content="https://jeremygautrais.fr/assets/img/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Jérémy Gautrais",
+        "jobTitle": "Web developer & design enthusiast",
+        "url": "https://jeremygautrais.fr/",
+        "image": "https://jeremygautrais.fr/images/profile.jpg",
+        "address": { "@type": "PostalAddress", "addressLocality": "Lyon", "addressCountry": "FR" },
+        "sameAs": [
+          "https://www.linkedin.com/in/jgautrais/",
+          "https://github.com/jgautrais"
+        ]
+      }
+    </script>
+  </head>
+
+  <body>
+    <header class="site-header container">
+      <span class="site-header__name">Jérémy Gautrais</span>
+      <nav class="site-header__nav">
+        <a href="#projects">Projects</a>
+        <a href="/gallery.html">Gallery</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero container">
+        <h1 class="hero__title">Web developer<br />&amp; <span class="accent">design</span> enthusiast.</h1>
+        <p class="hero__tagline">
+          I build web apps for a living, and design things for fun: 3D scenes, illustrations, pixel art.
+        </p>
+        <div class="hero__links">
+          <a href="https://www.linkedin.com/in/jgautrais/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://github.com/jgautrais" target="_blank" rel="noopener">GitHub</a>
+        </div>
+      </section>
+
+      <section id="projects" class="section container">
+        <div class="section__head">
+          <h2 class="section__title">Web projects</h2>
+        </div>
+        <ul class="projects">
+          <li class="project">
+            <a class="project__title" href="https://lesmots.jeremygautrais.fr/" target="_blank" rel="noopener">Les Mots ↗</a>
+            <p class="project__desc">A word game where you find every French word hidden in nine random letters.</p>
+          </li>
+          <li class="project">
+            <a class="project__title" href="https://aest.jeremygautrais.fr/" target="_blank" rel="noopener">Aest ↗</a>
+            <p class="project__desc">A training tool to practice the visual assessment of plant crop diseases.</p>
+          </li>
+          <li class="project">
+            <a class="project__title" href="https://github.com/jgautrais/toutcourt" target="_blank" rel="noopener">Tout court ↗</a>
+            <p class="project__desc">A simple tennis-court booking system built in three days as my training project.</p>
+          </li>
+        </ul>
+      </section>
+
+      <section id="gallery" class="section container">
+        <div class="section__head">
+          <h2 class="section__title">Voxel &amp; vector art</h2>
+          <a class="section__link" href="/gallery.html">See all work →</a>
+        </div>
+        <div class="teaser">
+          <!-- TEASER -->
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <span>© <span id="year">2026</span> Jérémy Gautrais</span>
+      <span>
+        <a href="https://github.com/jgautrais" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/jgautrais/" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </footer>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

@@ -1,9 +1,9 @@
 # syntax=docker/dockerfile:1
 
 # -------------------------------------------
-# Base Node image
+# Base Node image (glibc base is the most reliable for sharp prebuilts)
 # -------------------------------------------
-FROM node:22-alpine AS base
+FROM node:22-bookworm-slim AS base
 
 WORKDIR /app
 
@@ -24,10 +24,10 @@ COPY . .
 
 EXPOSE 4321
 
-CMD ["npm", "run", "dev", "--", "--host", "0.0.0.0"]
+CMD ["npm", "run", "dev"]
 
 # -------------------------------------------
-# Build stage - build static assets
+# Build stage - generate the static site into dist/
 # -------------------------------------------
 FROM install AS build
 
