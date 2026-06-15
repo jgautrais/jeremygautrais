@@ -1,21 +1,14 @@
 {
   "name": "jeremygautrais-portfolio",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview"
-  },
-  "dependencies": {
-    "astro": "^5.0.0"
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "fonts": "node scripts/fetch-fonts.mjs"
   },
   "devDependencies": {
-    "@astrojs/tailwind": "^6.0.0",
-    "@types/node": "^20",
-    "postcss": "^8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "sharp": "^0.34.0"
   }
 }

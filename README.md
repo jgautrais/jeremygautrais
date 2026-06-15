@@ -1,80 +1,54 @@
 # jeremygautrais.fr
 
-Personal portfolio website built with [Astro](https://astro.build/) and deployed using Docker.
+Personal portfolio.
 
-## Tech Stack
+Plain HTML, CSS and JavaScript — no runtime framework. A small Node build step
+optimizes the images and assembles the pages into a static site.
 
-- **Framework**: Astro 5 (static site generation)
-- **Styling**: Tailwind CSS
-- **Language**: TypeScript
-- **Containerization**: Docker with multi-stage builds
-- **Production Server**: Nginx
-- **Reverse Proxy**: Traefik
+## How it works
 
-## Project Structure
+- `app/src/` holds the hand-written pages (`index.html`, `gallery.html`) and
+  assets (CSS, JS, self-hosted fonts).
+- `app/scripts/build.mjs` produces `app/dist/`:
+  1. resizes each illustration in `app/public/images/illustration/` into
+     responsive `avif` / `webp` / `jpg` variants (thumbnail + full) plus a tiny
+     blurred placeholder, using [sharp];
+  2. injects the gallery and landing teaser into the HTML from the generated
+     image manifest;
+  3. copies assets and writes `sitemap.xml`, `robots.txt` and the social card.
 
-```
-.
-├── app/                    # Astro application
-│   ├── src/                # Source files
-│   ├── Dockerfile          # Multi-stage Docker build
-│   ├── astro.config.mjs    # Astro configuration
-│   └── package.json
-├── compose.yml             # Local development stack
-```
+The gallery is in the static HTML. JavaScript only adds filtering and the lightbox.
 
-## Getting Started
-
-### Prerequisites
-
-- Docker and Docker Compose
-- Node.js 22+ (for local development without Docker)
-
-### Local Development with Docker
-
-1. Start the development stack:
-
-   ```bash
-   docker compose up
-   ```
-
-2. Open [http://jeremygautrais.localhost](http://jeremygautrais.localhost) in your browser.
-   The Traefik dashboard is at [http://localhost:8080](http://localhost:8080).
-
-The app runs with hot reload enabled — changes to files under `app/` refresh
-automatically. To use a different host, set `DOMAIN` in a `.env` file (see
-`.env.example`).
-
-### Local Development without Docker
+## Develop
 
 ```bash
 cd app
 npm install
-npm run dev
+npm run fonts   # one-off: download the self-hosted fonts
+npm run dev     # build + serve at http://localhost:4321 + rebuild on change
 ```
 
-Open [http://localhost:4321](http://localhost:4321) in your browser.
+| Command         | Description                                        |
+| --------------- | -------------------------------------------------- |
+| `npm run dev`   | Build, serve on port 4321, rebuild on file changes |
+| `npm run build` | Generate the static site into `app/dist/`          |
+| `npm run fonts` | Download the self-hosted woff2 fonts               |
 
-## Available Scripts
+Adding an illustration: drop the file in `app/public/images/illustration/`
+(named `category-NNN_some_title.jpg`, e.g. `voxel-068_new_scene.jpg`) and run
+`npm run build`. Variants are cached, so rebuilds are incremental.
 
-Inside the `app/` directory:
+## Deploy
 
-| Command           | Description                      |
-| ----------------- | -------------------------------- |
-| `npm run dev`     | Start development server         |
-| `npm run build`   | Build static site for production |
-| `npm run preview` | Preview production build locally |
+Docker multi-stage build, served by Nginx behind Traefik.
 
-## Internationalization
+```bash
+docker compose up -d            # local stack at http://jeremygautrais.localhost
+```
 
-The site supports multiple languages:
+Dockerfile targets:
 
-- French (default): `/fr`
-- English: `/en`
+- **local** — dev server with rebuild-on-change (port 4321)
+- **release** — static site built and served via Nginx (port 80)
 
-## Docker Build Targets
-
-The Dockerfile supports multiple build targets:
-
-- **local**: Development server with hot reload (port 4321)
-- **release**: Production build served via Nginx (port 80)
+[sharp]: https://sharp.pixelplumbing.com/

@@ -1,0 +1,200 @@
+/* Page shell: site header/footer, landing hero, project cards, gallery teaser. */
+
+.container {
+  width: 100%;
+  max-width: var(--maxw);
+  margin-inline: auto;
+  padding-inline: var(--gap);
+}
+
+/* ---- Site header ---- */
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.25rem;
+}
+
+.site-header__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.site-header__nav a:hover {
+  color: var(--accent);
+}
+
+/* ---- Hero ---- */
+.hero {
+  padding-block: clamp(3rem, 9vw, 6rem) clamp(2rem, 6vw, 4rem);
+}
+
+.hero__title {
+  font-size: clamp(2.75rem, 9vw, 5.5rem);
+}
+
+.hero__title .accent {
+  color: var(--accent);
+}
+
+.hero__tagline {
+  margin-top: 1rem;
+  font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+.hero__links {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1.75rem;
+  flex-wrap: wrap;
+  font-weight: 600;
+}
+
+.hero__links a {
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.hero__links a:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.btn--accent {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.btn--accent:hover {
+  color: var(--accent-ink);
+  filter: brightness(1.05);
+}
+
+.btn svg {
+  width: 1.1em;
+  height: 1.1em;
+}
+
+/* ---- Sections ---- */
+.section {
+  padding-block: clamp(2.5rem, 7vw, 5rem);
+}
+
+.section__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.section__title {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+.section__link {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.section__link:hover {
+  color: var(--accent);
+}
+
+/* ---- Project list ---- */
+.projects {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: 1.75rem;
+  max-width: 60ch;
+}
+
+.project__title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
+  transition: color 0.2s;
+}
+
+.project__title:hover {
+  color: var(--accent);
+}
+
+.project__desc {
+  margin-top: 0.35rem;
+  color: var(--muted);
+}
+
+/* ---- Gallery teaser (landing) ---- */
+.teaser {
+  columns: 3 220px;
+  column-gap: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.teaser__item {
+  display: block;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  break-inside: avoid;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.teaser__item img {
+  width: 100%;
+  height: auto;
+  background-size: cover;
+  transition: transform 0.4s;
+}
+
+.teaser__item:hover img {
+  transform: scale(1.05);
+}
+
+/* ---- Footer ---- */
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 2rem;
+  padding-block: 2rem;
+  color: var(--muted);
+  font-size: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.site-footer a:hover {
+  color: var(--accent);
+}

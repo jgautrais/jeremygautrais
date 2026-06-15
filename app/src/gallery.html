@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Gallery — Voxel & vector art by Jérémy Gautrais</title>
+    <meta
+      name="description"
+      content="A gallery of voxel, vector and pixel illustrations by Jérémy Gautrais — little 3D worlds, low-poly scenes and flat-design pieces."
+    />
+    <link rel="canonical" href="https://jeremygautrais.fr/gallery.html" />
+    <meta name="theme-color" content="#faf9f6" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Gallery — Voxel & vector art by Jérémy Gautrais" />
+    <meta property="og:description" content="Voxel, vector and pixel illustrations — little 3D worlds and flat-design scenes." />
+    <meta property="og:url" content="https://jeremygautrais.fr/gallery.html" />
+    <meta property="og:image" content="https://jeremygautrais.fr/assets/img/og.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="preload" href="/assets/fonts/bricolage-800.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="/assets/css/base.css" />
+    <link rel="stylesheet" href="/assets/css/layout.css" />
+    <link rel="stylesheet" href="/assets/css/gallery.css" />
+
+    <!-- Enable JS-only UI as early as possible to avoid a flash. -->
+    <script>
+      document.documentElement.classList.remove("no-js");
+    </script>
+  </head>
+
+  <body>
+    <header class="site-header container">
+      <a class="site-header__name" href="/">Jérémy Gautrais</a>
+      <nav class="site-header__nav">
+        <a href="/#projects">Projects</a>
+        <a href="/">Home</a>
+      </nav>
+    </header>
+
+    <main class="container">
+      <section class="gallery-intro">
+        <h1>Voxel &amp; vector art</h1>
+        <p>
+          Little worlds built voxel by voxel, low-poly scenes and flat-design pieces.
+          Click any image to view it full size.
+        </p>
+      </section>
+
+      <nav class="filters" aria-label="Filter by category">
+        <button class="filter" data-filter="all" aria-pressed="true">All</button>
+        <button class="filter" data-filter="voxel" aria-pressed="false">Voxel</button>
+        <button class="filter" data-filter="vector" aria-pressed="false">Vector</button>
+        <button class="filter" data-filter="pixel" aria-pressed="false">Pixel</button>
+      </nav>
+
+      <div class="grid">
+        <!-- GALLERY -->
+      </div>
+    </main>
+
+    <footer class="site-footer container">
+      <span>© <span id="year">2026</span> Jérémy Gautrais</span>
+      <span>
+        <a href="https://github.com/jgautrais" target="_blank" rel="noopener">GitHub</a> ·
+        <a href="https://www.linkedin.com/in/jgautrais/" target="_blank" rel="noopener">LinkedIn</a>
+      </span>
+    </footer>
+
+    <dialog class="lightbox" aria-label="Image viewer">
+      <button class="lightbox__close" aria-label="Close">✕</button>
+      <button class="lightbox__btn lightbox__btn--prev" aria-label="Previous">‹</button>
+      <button class="lightbox__btn lightbox__btn--next" aria-label="Next">›</button>
+      <div class="lightbox__stage">
+        <picture>
+          <source type="image/avif" srcset="" />
+          <source type="image/webp" srcset="" />
+          <img src="" alt="" />
+        </picture>
+      </div>
+      <p class="lightbox__caption"></p>
+    </dialog>
+
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
+    <script type="module" src="/assets/js/gallery.js"></script>
+  </body>
+</html>
